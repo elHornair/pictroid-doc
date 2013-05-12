@@ -1,0 +1,130 @@
+/* page setup */
+@page {
+    size: a4 portrait;
+    margin: 20mm;
+    padding: 5mm 0;
+    border-top: thin solid black;
+    border-bottom: thin solid black;
+
+    @top-left {
+        font-size: 10pt;
+        vertical-align: bottom;
+        margin: 2mm;
+        content: "Pictroid - Seminar Syntax und Semantik";
+    }
+    @top-right {
+        font-size: 10pt;
+        vertical-align: bottom;
+        margin: 2mm;
+        content: "Zürcher Hochschule für Angewandte Wissenschaften";
+    }
+    @bottom {
+        font-size: 10pt;
+        content: counter(page);
+        vertical-align: top;
+        text-align: right;
+        margin: 2mm
+    }
+}
+
+@page :first {
+    border-top: none;
+    border-bottom: none;
+    @top-right {
+      content: normal;
+    }
+    @top-left {
+      content: normal;
+    }
+    @bottom {
+      content: normal;
+    }
+}
+
+/* general formatting rules */
+html,
+body,
+div,
+ul,
+ol {
+  font: 12pt serif;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+    color: #2A4480;
+    page-break-before: always;
+    white-space: pre;
+}
+
+h2 {
+    color: #687da8;
+    white-space: pre;
+}
+
+p {
+    padding-left: 14mm;
+}
+
+img {
+    max-width: 100%
+}
+
+
+/* chapter counters */
+#content {
+    counter-reset: h1;
+}
+
+.chapter h1 {
+    counter-increment: h1;
+    counter-reset: h2;
+}
+.chapter h1::before {
+    content: counter(h1) ".   ";
+}
+
+.chapter h2 {
+    counter-increment: h2;
+}
+.chapter h2::before {
+    content: counter(h1) "." counter(h2) ".  ";
+}
+
+
+/* TOC */
+#toc {
+    list-style-type: none;
+    counter-reset: toc-level-1;
+    padding-left: 0;
+}
+#toc > li {
+    counter-increment: toc-level-1;
+    white-space: pre;
+}
+#toc > li::before {
+    content: counter(toc-level-1) ".  ";
+}
+
+#toc ol {
+    list-style-type: none;
+    counter-reset: toc-level-2;
+    padding-left: 5mm;
+}
+#toc ol > li {
+    counter-increment: toc-level-2;
+    white-space: pre;
+}
+#toc ol > li::before {
+    content: counter(toc-level-1) "." counter(toc-level-2) ".  ";
+}
+
+#toc a {
+    text-decoration: none;
+    color: black;
+}
+#toc a::after {
+    content: leader('.') target-counter(attr(href), page);
+}
+

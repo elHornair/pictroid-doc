@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/master.css" />
+    <script>
+
+        function createTocElement(title, href) {
+            var wrapper,
+                anchor;
+
+            wrapper = document.createElement('li');
+            anchor = document.createElement('a');
+
+            anchor.appendChild(document.createTextNode(title));
+            anchor.setAttribute('href', href);
+            wrapper.appendChild(anchor);
+
+            return wrapper;
+        }
+
+        function generateTOC() {
+            var tocContainer = document.getElementById('toc'),
+                mainChapters = document.getElementById('content').getElementsByTagName('h1'),
+                subChapters,
+                tocChapter,
+                tocSubChapterList,
+                tocSubChapter,
+                id,
+                i,
+                j;
+
+            // loop through main chapters
+            for (i = 0; i < mainChapters.length; i++) {
+                id = 'chapter-' + i;
+                subChapters = mainChapters[i].parentNode.getElementsByTagName('h2');
+
+                tocChapter = createTocElement(mainChapters[i].innerHTML, '#' + id);
+                mainChapters[i].setAttribute('id', id);// set id of target element, so we can link to it
+                tocSubChapterList = document.createElement('ol');
+
+                // loop through subchapters
+                for (j = 0; j < subChapters.length; j++) {
+                    id = 'chapter-' + i + '-' + j;
+                    tocSubChapter = createTocElement(subChapters[j].innerHTML, '#' + id);
+                    subChapters[j].setAttribute('id', id);// set id of target element, so we can link to it
+                    tocSubChapterList.appendChild(tocSubChapter);
+                }
+
+                tocChapter.appendChild(tocSubChapterList);
+                tocContainer.appendChild(tocChapter);
+            }
+        }
+
+        function init() {
+            generateTOC();
+        }
+    </script>
+</head>
+
+<body onload="init();">
+
+<h1>Inhaltsverzeichnis</h1>
+<ol id="toc">
+</ol>
+
+<div id="content">
+
+    <div class="chapter">
+        <h1>Kapitel 1</h1>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of
+            Lorem Ipsum.
+        </p>
+
+        <h2>Kapitel 1.1</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of
+            Lorem Ipsum.
+        </p>
+        <h2>Kapitel 1.2</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of
+            Lorem Ipsum.
+        </p>
+        <h2>Kapitel 1.3</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of
+            Lorem Ipsum.
+        </p>
+    </div>
+    <div class="chapter">
+        <h1>Kapitel 2</h1>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of
+            Lorem Ipsum.
+        </p>
+
+        <h2>Kapitel 1.1</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of
+            Lorem Ipsum.
+        </p>
+        <h2>Kapitel 1.2</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of
+            Lorem Ipsum.
+        </p>
+        <h2>Kapitel 1.3</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of
+            Lorem Ipsum.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
