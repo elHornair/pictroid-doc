@@ -1,52 +1,61 @@
-function createTocElement(title, href) {
-    var wrapper,
-        anchor;
+/*global window, document */
 
-    wrapper = document.createElement('li');
-    anchor = document.createElement('a');
+var docModule = (function (docModule, document) {
 
-    anchor.appendChild(document.createTextNode(title));
-    anchor.setAttribute('href', href);
-    wrapper.appendChild(anchor);
+    "use strict";
 
-    return wrapper;
-}
+    var createTocElement = function (title, href) {
+            var wrapper,
+                anchor;
 
-function generateTOC() {
-    var tocContainer = document.getElementById('toc'),
-        mainChapters = document.getElementById('content').getElementsByTagName('h1'),
-        subChapters,
-        tocChapter,
-        tocSubChapterList,
-        tocSubChapter,
-        id,
-        i,
-        j;
+            wrapper = document.createElement('li');
+            anchor = document.createElement('a');
 
-    // loop through main chapters
-    for (i = 0; i < mainChapters.length; i++) {
-        id = 'chapter-' + i;
-        subChapters = mainChapters[i].parentNode.getElementsByTagName('h2');
+            anchor.appendChild(document.createTextNode(title));
+            anchor.setAttribute('href', href);
+            wrapper.appendChild(anchor);
 
-        tocChapter = createTocElement(mainChapters[i].innerHTML, '#' + id);
-        mainChapters[i].setAttribute('id', id);// set id of target element, so we can link to it
-        tocSubChapterList = document.createElement('ol');
+            return wrapper;
+        },
 
-        // loop through subchapters
-        for (j = 0; j < subChapters.length; j++) {
-            id = 'chapter-' + i + '-' + j;
-            tocSubChapter = createTocElement(subChapters[j].innerHTML, '#' + id);
-            subChapters[j].setAttribute('id', id);// set id of target element, so we can link to it
-            tocSubChapterList.appendChild(tocSubChapter);
-        }
+        generateTOC = function () {
+            var tocContainer = document.getElementById('toc'),
+                mainChapters = document.getElementById('content').getElementsByTagName('h1'),
+                subChapters,
+                tocChapter,
+                tocSubChapterList,
+                tocSubChapter,
+                id,
+                i,
+                j;
 
-        tocChapter.appendChild(tocSubChapterList);
-        tocContainer.appendChild(tocChapter);
-    }
-}
+            // loop through main chapters
+            for (i = 0; i < mainChapters.length; i++) {
+                id = 'chapter-' + i;
+                subChapters = mainChapters[i].parentNode.getElementsByTagName('h2');
 
-function init() {
-    generateTOC();
-}
+                tocChapter = createTocElement(mainChapters[i].innerHTML, '#' + id);
+                mainChapters[i].setAttribute('id', id);// set id of target element, so we can link to it
+                tocSubChapterList = document.createElement('ol');
 
-window.onload = init;
+                // loop through subchapters
+                for (j = 0; j < subChapters.length; j++) {
+                    id = 'chapter-' + i + '-' + j;
+                    tocSubChapter = createTocElement(subChapters[j].innerHTML, '#' + id);
+                    subChapters[j].setAttribute('id', id);// set id of target element, so we can link to it
+                    tocSubChapterList.appendChild(tocSubChapter);
+                }
+
+                tocChapter.appendChild(tocSubChapterList);
+                tocContainer.appendChild(tocChapter);
+            }
+        };
+
+    docModule.init = function () {
+        generateTOC();
+    };
+
+    return docModule;
+}({}, document));
+
+window.onload = docModule.init;
