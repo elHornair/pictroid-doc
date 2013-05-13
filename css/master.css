@@ -44,9 +44,7 @@
 /* general formatting rules */
 html,
 body,
-div,
-ul,
-ol {
+div {
   font: 12pt serif;
   padding: 0;
   margin: 0;
@@ -63,12 +61,21 @@ h2 {
     white-space: pre;
 }
 
-p {
-    padding-left: 14mm;
+.chapter p {
+    margin: 0 14mm 0 0;
 }
 
-img {
+.chapter img {
     max-width: 100%
+}
+
+.chapter > ul {
+    margin-top: 1em;
+    margin-left: 19mm;
+}
+
+.chapter > ul ul {
+    margin-left: 8mm;
 }
 
 
@@ -97,7 +104,8 @@ img {
 #toc {
     list-style-type: none;
     counter-reset: toc-level-1;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
 }
 #toc > li {
     counter-increment: toc-level-1;
@@ -110,7 +118,7 @@ img {
 #toc ol {
     list-style-type: none;
     counter-reset: toc-level-2;
-    padding-left: 5mm;
+    margin-left: 5mm;
 }
 #toc ol > li {
     counter-increment: toc-level-2;
