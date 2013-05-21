@@ -157,3 +157,35 @@ h2 {
     content: leader('.') target-counter(attr(href), page);
 }
 
+
+/* Footnotes */
+.chapter h1 {
+    counter-reset: footnote;
+}
+
+.footnote {
+    counter-increment: footnote;
+    float: footnote;
+    font-size: 10pt;
+}
+
+.footnote::footnote-call {
+    content: "[" counter(h1) "." counter(footnote) "]";
+    font-size: 10pt;
+    vertical-align: top;
+}
+
+.footnote::footnote-marker {
+    content: "[" counter(h1) "." counter(footnote) "]";
+    font-size: 10pt;
+    padding-right: 3mm;
+}
+
+@page {
+    @footnotes {
+        border-top: solid black thin;
+        padding-top: 4mm;
+        padding-left: 10mm;
+        margin-right: 500px;
+    }
+}
