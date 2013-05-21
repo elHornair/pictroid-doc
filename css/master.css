@@ -2,9 +2,7 @@
 @page {
     size: a4 portrait;
     margin: 20mm;
-    padding: 5mm 0;
-    border-top: thin solid black;
-    border-bottom: thin solid black;
+    padding: 10mm 0;
 
     @top-left {
         font-size: 10pt;
