@@ -69,13 +69,34 @@ h2 {
     max-width: 100%
 }
 
+.chapter ul {
+    list-style: none;
+}
+
 .chapter > ul {
     margin-top: 1em;
-    margin-left: 19mm;
+    margin-left: 10mm;
 }
 
 .chapter > ul ul {
-    margin-left: 8mm;
+    margin-left: 6mm;
+    list-style: none;
+}
+
+.chapter li:before {
+    content:'\2022';
+    display: block;
+    position: relative;
+    max-width: 0px;
+    max-height: 0px;
+    left: -16px;
+    top: -2px;
+    color: #2A4480;
+    font-size: 20px;
+}
+
+.chapter li li:before {
+    color: #687da8;
 }
 
 
