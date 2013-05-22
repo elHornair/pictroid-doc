@@ -115,7 +115,6 @@
             <li>05. Juni 2013: Abgabe der Seminararbeit</li>
             <li>12. Juni 2013: Präsentation der Seminararbeit</li>
         </ul>
-
     </div>
 
     <div class="chapter">
@@ -123,17 +122,40 @@
 
         <h2>Grundlegende Überlegungen</h2>
         <p>
-            Placeholder
+
+            -> Sprache soll möglichst einfach sein
+
+            TODO: Sagen, was überlegt wurde und erklären, wie die Symbole aussehen (Bilder) -> Syntax / Semantik
+                  der Symbole erklären
+
+            - Anweisungen
+            - Loops
+            - Conditions
+
+            Der Einfachheit halber sollen folgende Features momentan nicht Teil der Sprache:
+                - Funktionen
+                - Output
+
+            Es ist vorstellbar, dass diese Konzepte zu einem späteren Zeitpunkt in die Sprache integriert werden.
         </p>
 
         <h2>sprache in ebnf</h2>
         <p>
-            Placeholder
+            - Vorgehen erklären: Zuerst von Hand gezeichnet (als Typ3-Grammatik, oder wie heisst das schon wieder?),
+                                 dann mit EBNF-Notation ausgedrückt
+            - EBNF-Notation kurz erklären
+            - Zeichnung, die ich gemacht habe übernehmen
         </p>
 
-        <h2>Erläuterungen zur Sprache</h2>
+        <h2>Verifizierung / Interpretation eines Programms</h2>
         <p>
-            Syntax / Semantik
+            Erklären, wies mit PDA gemacht wird. nette grafik?
+
+            Schwierigkeiten:
+                - Loops und Conditions können beliebig tief ineinander verschachtelt sein
+                - Loops und Conditions müssen geschlossen werden
+                - Auf Condition muss Conditional folgen
+                - Auf Loop-Statement muss Zahl folgen
         </p>
     </div>
 
@@ -145,6 +167,15 @@
             Drag'n'Drop?
             Interpretation?
             Steuerung des Roboters?
+        </p>
+
+        <h2>Schwierigkeiten</h2>
+        <p>
+            Auch kurz sagen, wies gelöst wurde:
+                - Wenn Ziel gefunden wurde, muss gestoppt werden
+                - Nicht alles sofort ausführen: Delay
+                - Wenn er Richtung ändert, muss er sich zuerst umdrehen
+                - Verschiedene Maps: Array mit Konfiguration pro Level
         </p>
 
         <h2>Technischer Hintergrund</h2>
