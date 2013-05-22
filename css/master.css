@@ -50,6 +50,14 @@ h2 {
     margin: 0 14mm 0 0;
 }
 
+.chapter table {
+    border-collapse:collapse;
+}
+.chapter th,
+.chapter td {
+    border: solid #2A4480 thin;
+}
+
 .chapter img {
     max-width: 100%
 }
