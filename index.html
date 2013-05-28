@@ -137,6 +137,8 @@
                 - Output
 
             Es ist vorstellbar, dass diese Konzepte zu einem späteren Zeitpunkt in die Sprache integriert werden.
+
+            -> Name: Pictroid
         </p>
 
         <h2>Die Sprache in EBNF</h2>
@@ -191,18 +193,53 @@
             Loop = "repeat", Counter, { Statement }, "endrepeat", { Statement } ;<br>
         </p>
 
-
-
-
         <h2>Verifizierung / Interpretation eines Programms</h2>
         <p>
-            Erklären, wies mit PDA gemacht wird. nette grafik?
+            Bei der Verifizierung geht es darum zu entscheiden, ob ein bestimmtes Programm korrekt im Sinne der Sprache
+            <i>Pictroid</i> ist. Dabei bezieht sich die Korrektheit nur auf die
+            Syntax<span class="footnote">Siehe Glossar</span> des Programms. Ob das Programm auch tatsächlich das tut,
+            was dessen Verfasser beabsichtigt, kann leider nicht automatisch verifiziert werden.
+        </p>
+        <p>
+            Wird bei der Verifizierung ein Fehler gefunden, kann zudem ausgesagt werden, an welcher Stelle sich dieser
+            befindet. Ausserdem kann auch eine Aussage darüber gemacht werden, von welcher Art der Fehler ist und wie
+            er behoben werden kann.
+        </p>
+        <p>
+            Bei der Interpretation sollen die Programmbefehle gelesen und in konkrete Anweisungen für den
+            <i>Pictroid</i>-Roboter umgewandelt werden. Da eine erfolgreiche Interpretation ein valides Programm
+            voraussetzt, sind Interpretation und Verifizierung stark miteinander verknüpft.
+        </p>
+        <p>
+            Die programmatische Verifizierung von Quellcode kann schnell zu einer komplexen Verschachtelung von
+            <i>if</i>-/<i>else</i>-Bedingungen führen, da zu jedem Befehl auch Spezialfälle beachtet werden müssen.
+            Dies ist auch bei einer einfachen Sprache wie <i>Pictroid</i> der Fall. So müssen unter anderem folgende
+            Bedingungen eingehalten und beim Verifizieren überprüft werden:
+        </p>
+        <ul>
+            <li>Loops und Conditions können beliebig tief ineinander verschachtelt werden. Diese dürfen auch beliebig
+                gemischt werden. Beispielsweise darf in einem Loop eine Bedingung gesetzt werden, die darüber
+                entscheidet, ob ein innerer Loop ausgeführt wird oder nicht.</li>
+            <li>Loops und Conditions müssen immer durch ihr entsprechendes Abschluss-Statement beendet werden.</li>
+            <li>Auf ein Condition-Statement muss immer ein Conditional folgen.</li>
+            <li>Auf Loop-Statement muss immer ein Counter folgen.</li>
+            <li>Conditionals und Counter dürfen an keinen anderen als den vorgesehenen Stellen auftreten.</li>
+            <li>Es dürfen keine unbekannten Symbole auftreten.</li>
+        </ul>
+        <p>
+            Zuerst wurde versucht, die Verifizierung mit verschachtelten <i>if</i>-/<i>else</i>-Bedingungen umzusetzen,
+            welche die obigen Konditionen überprüfen. Da aber bereits die einfachen Regeln der <i>Pictroid</i>-Sprache zu
+            unüberschaubaren und komplexen Codestrukturen führen, habe mich entschieden,
+            die Verifizierung mit Hilfe eines <i>Push-Down-Automaten</i> (<i>PDA</i>) umzusetzen.
+            Ein <i>PDA</i> kann ...
+            <!--TODO: korrekte schreibweise für PDA-->
+            <!--TODO: nette grafik für PDA-->
+            <!--TODO: erklären, wies mit PDA gemacht wird-->
 
-            Schwierigkeiten:
-                - Loops und Conditions können beliebig tief ineinander verschachtelt sein
-                - Loops und Conditions müssen geschlossen werden
-                - Auf Condition muss Conditional folgen
-                - Auf Loop-Statement muss Zahl folgen
+            Die Verifizierung mittels <i>PDA</i> ist nicht nur überschaubarer, sie ist auch flexibler: Soll nämlich die
+            <i>Pictroid</i>-Sprache erweitert werden, muss einfach eine neue Regel zum <i>PDA</i> hinzugefügt werden.
+            Bei einer Implementierung mit verschachtelten <i>if</i>-/<i>else</i>-Bedingungen müsste unter Umständen
+            die ganze Verifizierung überarbeitet werden.
         </p>
     </div>
 
@@ -296,6 +333,18 @@
                     <span class="footnote source">
                         Lutz Engelmann (2000), Kleiner Leitfaden Informatik und ihre Anwendung<span class="additional">, erschienen in Berlin, ISBN 3-89517-615-X</span>
                     </span>
+                </td>
+            </tr>
+            <tr>
+                <td>Semantik</td>
+                <td>
+                    TODO: erklären
+                </td>
+            </tr>
+            <tr>
+                <td>Syntax</td>
+                <td>
+                    TODO: erklären
                 </td>
             </tr>
             <tr>

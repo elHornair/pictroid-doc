@@ -47,10 +47,12 @@ h2 {
 }
 
 .chapter p {
-    margin: 6mm 14mm 6mm 0;
+    margin: 0;
+    padding: 0;
 }
 
 .chapter table {
+    margin-top: 6mm;
     border-collapse:collapse;
 }
 .chapter th,
@@ -67,8 +69,7 @@ h2 {
 }
 
 .chapter > ul {
-    margin-top: 1em;
-    margin-left: 10mm;
+    margin: 5mm 0mm 5mm 10mm;
 }
 
 .chapter > ul ul {
