@@ -2,7 +2,7 @@
 @page {
     size: a4 portrait;
     margin: 20mm;
-    padding: 10mm 0;
+    padding: 10mm 6mm;
 
     @top-left {
         font-size: 10pt;
@@ -47,7 +47,7 @@ h2 {
 }
 
 .chapter p {
-    margin: 0 14mm 0 0;
+    margin: 6mm 14mm 6mm 0;
 }
 
 .chapter table {
@@ -179,9 +179,25 @@ h2 {
         border-top: solid black thin;
         padding-top: 4mm;
         padding-left: 10mm;
-        margin-right: 500px;
+        margin-right: 300px;
     }
 }
+
+
+/*source*/
+.source .additional {
+    display: none;
+}
+#sourceCatalog {
+    margin-left: 0;
+}
+#sourceCatalog li {
+     padding: 2mm 0;
+ }
+#sourceCatalog li:before {
+    content: '';
+}
+
 
 /*front page*/
 .frontpage {

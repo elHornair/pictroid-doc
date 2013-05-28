@@ -49,10 +49,31 @@ var docModule = (function (docModule, document) {
                 tocChapter.appendChild(tocSubChapterList);
                 tocContainer.appendChild(tocChapter);
             }
+        },
+
+        createSourceElement = function (content) {
+            var wrapper = document.createElement('li');
+            wrapper.appendChild(document.createTextNode(content));
+
+            return wrapper;
+        },
+
+        generateSourceCatalog = function () {
+            var i,
+                catalogContainer = document.getElementById('sourceCatalog'),
+                sources = document.getElementById('content').getElementsByClassName('source'),
+                content;
+
+            for (i = 0; i < sources.length; i++) {
+                content = sources[i].innerHTML;
+                content = content.replace(/(<([^>]+)>)/ig, '');// strip tags
+                catalogContainer.appendChild(createSourceElement(content));
+            }
         };
 
     docModule.init = function () {
         generateTOC();
+        generateSourceCatalog();
     };
 
     return docModule;
