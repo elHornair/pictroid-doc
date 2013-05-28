@@ -144,8 +144,47 @@
             - Vorgehen erklären: Zuerst von Hand gezeichnet (als Typ3-Grammatik, oder wie heisst das schon wieder?),
                                  dann mit EBNF-Notation ausgedrückt
             - EBNF-Notation kurz erklären
+                - https://de.wikipedia.org/wiki/EBNF
+                - ISO-Standard: http://standards.iso.org/ittf/licence.html
             - Zeichnung, die ich gemacht habe übernehmen
+
+            Um die Lesbarkeit der Sprache in der EBNF zu erhöhen, wurden die grafischen Symbole durch kurze Texte
+            ersetzt. Die verwendeten Texte entsprechen wie folgt den oben definierten Symbolen:
+
         </p>
+        <ul>
+            <!-- TODO: symbole reinmachen, sobald definiert -->
+            <li>left = <span class="left"></span></li>
+            <li>right = <span class="right"></span></li>
+            <li>up = <span class="up"></span></li>
+            <li>down = <span class="down"></span></li>
+            <li>stone = <span class="stone"></span></li>
+            <li>condition = <span class="condition"></span></li>
+            <li>endcondition = <span class="endcondition"></span></li>
+            <li>repeat = <span class="repeat"></span></li>
+            <li>endrepeat = <span class="endrepeat"></span></li>
+        </ul>
+
+        <h3>Terminalsymbole</h3>
+        <p>
+            <!-- TODO: andere schrift für code? wenigstens monospace -->
+            Counter = "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "&infin;" ;<br>
+            Command = "left" | "right" | "up" | "down" ;<br>
+            Conditional = "stone" ;
+        </p>
+
+        <h3>Nichtterminalsymbole</h3>
+        <p>
+            <!--TODO: erklären - statement kann auch ins nichts führen -> leeres programm-->
+            <!--TODO: erklären - auch NACH loop und condition muss Statement kommen können-->
+            Programm = { Statement } ;<br>
+            Statement = Command | Condition | Loop ;<br>
+            Condition = "condition", Conditional, { Statement }, "endcondition", { Statement } ;<br>
+            Loop = "repeat", Counter, { Statement }, "endrepeat", { Statement } ;<br>
+        </p>
+
+
+
 
         <h2>Verifizierung / Interpretation eines Programms</h2>
         <p>
