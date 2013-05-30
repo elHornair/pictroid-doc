@@ -33,7 +33,7 @@
         <p>
             Programmieranfänger sind mit in der Praxis verwendeten Programmiersprachen oft überfordert.
             Einerseits sind diese Sprachen sehr komplex, andererseits die Interpreter/Compiler äusserst pingelig.
-            Aus eigener Erfahrung verbringt man zu Beginn deshalb viel Zeit damit, sich mit fehlenden Semikoli (TODO: Mehrzahl von Semikolon?)  
+            Aus eigener Erfahrung verbringt man zu Beginn deshalb viel Zeit damit, sich mit fehlenden Semikola
             und der korrekten Schreibweise von Befehlen herumzuschlagen. Mit einer Programmiersprache, die sich an
             den Bedürfnissen von Programmieranfängern orientiert, könnte deshalb der Einstieg in die Programmierung erleichtert werden.
         </p>
@@ -64,10 +64,11 @@
                 Es soll eine Anwedung entwickelt werden, die folgende Anforderungen erfüllt:
                 <ul>
                     <li>Der Benutzer kann mit Bildern ein Programm zusammenstellen</li>
-                    <li>Der Benutzer kann sein Programm mittels Drag'n'Drop-Funktionalität (TODO: Verweis auf Glossar) bearbeiten</li>
+                    <li>Der Benutzer kann sein Programm mittels Drag'n'Drop-Funktionalität<span class="footnote">Siehe
+                        Glossar</span> bearbeiten</li>
                     <li>Der Benutzer kann ein erstelltes Programm ausführen lassen</li>
                     <li>Der Roboter kann ein Programm interpretieren und die entsprechenden Schritte ausführen</li>
-                    <li>Der Roboter stoppt automatisch, wenn Ziel erreicht ist</li>
+                    <li>Der Roboter stoppt automatisch, wenn das Ziel erreicht ist</li>
                     <li>Die Anwendung erkennt Syntaxfehler und signalisiert diese dem Benutzer</li>
                     <li>Es stehen drei Levels zur Verfügung, in denen der Benutzer das Programmieren üben kann</li>
                 </ul>
@@ -275,8 +276,9 @@
                 des Programms (beziehungsweise eine textliche Repräsentation davon). Der PDA befindet sich im Zustand
                 <i>lesend</i>.</p></li>
             <li><p>Das erste Symbol wird vom Eingabeband eingelesen.</p></li>
-            <li><p>Das eingelesene Symbol wird mit demjenigen Symbol verglichen, das sich momentan zuoberst auf dem
-                Stack befindet:
+            <li>
+                <p>Das eingelesene Symbol wird mit demjenigen Symbol verglichen, das sich momentan zuoberst auf dem
+                Stack befindet:</p>
                 <ul>
                     <li>Handelt es sich beim Symbol auf dem Stack um ein <i>Statement</i>, wird dieses durch eine Folge
                         von Symbolen ersetzt, die gemäss den Regeln der Sprache ein <i>Command</i>, eine
@@ -295,8 +297,9 @@
                     <li>Wurde ein leeres Symbol eingelesen, weil bereits alle definierten Symbole vom Eingabeband
                         gelesen wurden, wird bei <span class="ol-item-reference">4</span> fortgefahren.</li>
                 </ul>
-                </p></li>
-            <li><p>Wenn alle Symbole vom Eingabeband gelesen wurden, wird der verbleibende Stack analysiert:
+            </li>
+            <li>
+                <p>Wenn alle Symbole vom Eingabeband gelesen wurden, wird der verbleibende Stack analysiert:</p>
                 <ul>
                     <li>Wenn sich auf dem Stack nur noch Symbole vom Typ <i>Statement</i> befinden,geht der PDA in
                         den Zustand <i>gültig</i>.</li>
@@ -305,7 +308,7 @@
                         <i>repeat</i>-Block mit einem <i>endrepeat</i>-Symbol abzuschliessen, obwohl dies von den
                         Regeln der Sprache verlangt wird.</li>
                 </ul>
-                </p></li>
+            </li>
             <li><p>Befindet sich der PDA im Zustand <i>gültig</i>, liegt ein valides Pictroid-Programm vor.
                 Befindet er sich hingegen im Zustand <i>ungültig</i>, liegt ein Syntaxfehler vor.</p></li>
         </ol>
@@ -490,6 +493,7 @@ TODOs allgemein:
 - Alle TODOs durchgehn
 - Beat: Falls nicht schon geschehen: Schau Dir unbedingt die Sprache von Robowar an, ich denke die parallelen sind offensichtlich ;) http://en.m.wikipedia.org/wiki/RoboWar -> irgendwo erwähnen? abgrenzung?
 - Styling Tabellen
+- Bildunterschriften (caption)
 - schauen, dass spezielle wörter nur bei der ersten verwendung kursiv sind
 - Quellenangaben vervollständigen
 - h3 stylen
@@ -497,6 +501,9 @@ TODOs allgemein:
 - Alles nochmal durchlesen
 - cleanup: Seitenumbrüche, Bildunterschriften, Zitate, ...?
 - github repos irgendwo einbauen: doku und app
+- readme, das sagt, wie kompilieren:
+    - prince installieren (version?)
+    - Command
 
 </body>
 </html>
