@@ -216,6 +216,24 @@ h3 {
     content: counter(h1) "." counter(h2) "." counter(h3) ".  ";
 }
 
+/*captions*/
+.chapter caption {
+    caption-side: bottom;
+    text-align: left;
+    color: #2A4480;
+    font-size: 10pt;
+    padding: 2mm 0 0 4mm;
+}
+#content {
+    counter-reset: caption-table;
+}
+.chapter table caption {
+    counter-increment: caption-table;
+}
+.chapter table caption::before {
+    content: "Tabelle " counter(caption-table) ": ";
+}
+
 
 /* TOC */
 #toc {
