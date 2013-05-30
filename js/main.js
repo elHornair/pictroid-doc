@@ -62,10 +62,18 @@ var docModule = (function (docModule, document) {
             var i,
                 catalogContainer = document.getElementById('sourceCatalog'),
                 sources = document.getElementById('content').getElementsByClassName('source'),
-                content;
+                content,
+                nodeToHide;
 
             for (i = 0; i < sources.length; i++) {
                 content = sources[i].innerHTML;
+
+                // strip tags with "less" class
+                nodeToHide = sources[i].getElementsByClassName('less')[0];
+                if (nodeToHide) {
+                    content = content.replace(new RegExp(nodeToHide.innerHTML, 'ig'), '');
+                }
+
                 content = content.replace(/(<([^>]+)>)/ig, '');// strip tags
                 catalogContainer.appendChild(createSourceElement(content));
             }
