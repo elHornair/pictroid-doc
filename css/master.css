@@ -1,3 +1,9 @@
+/* COLORS
+    dark blue:     #2A4480;
+    normal blue: #687da8;
+    light blue:    #d3dfed;
+*/
+
 /* page setup */
 @page {
     size: a4 portrait;
@@ -59,9 +65,26 @@ h2 {
     margin-top: 6mm;
     border-collapse:collapse;
 }
-.chapter th,
-.chapter td {
+.chapter table th {
+    text-align: left;
+    color: #2A4480;
+}
+.chapter table th,
+.chapter table td {
     border: solid #2A4480 thin;
+    padding: 1mm;
+}
+.chapter table th:first-of-type,
+.chapter table td:first-of-type {
+    border-left: none;
+}
+.chapter table th:last-of-type,
+.chapter table td:last-of-type {
+    border-right: none;
+}
+
+.chapter table tr:nth-child(even) {
+    background-color: #d3dfed;
 }
 
 .chapter img {
