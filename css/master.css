@@ -46,6 +46,10 @@ h2 {
     white-space: pre;
 }
 
+.clear {
+    clear: both;
+}
+
 .chapter p {
     margin: 0;
     padding: 0;
@@ -69,7 +73,8 @@ h2 {
 }
 
 .chapter > ul,
-.chapter > ol {
+.chapter > ol,
+.chapter > dl {
     margin: 5mm 0mm 5mm 10mm;
 }
 .chapter > ol,
@@ -104,6 +109,54 @@ h2 {
 
 .chapter li li:before {
     color: #687da8;
+}
+
+.chapter div.column {
+    float: left;
+    width: 32%;
+}
+
+.chapter dl.symbols dt {
+    float: left;
+    line-height: 54px;
+    font-weight: normal;
+}
+.chapter dl.symbols dd {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 6px;
+    background-repeat: no-repeat;
+    margin-left: 24mm;
+}
+.chapter dl.symbols dd.left {
+    background-image:url('../img/symbols/left.png');
+}
+.chapter dl.symbols dd.right {
+    background-image:url('../img/symbols/right.png');
+}
+.chapter dl.symbols dd.up {
+    background-image:url('../img/symbols/up.png');
+}
+.chapter dl.symbols dd.down {
+    background-image:url('../img/symbols/down.png');
+}
+.chapter dl.symbols dd.stone {
+    background-image:url('../img/symbols/stone.png');
+}
+.chapter dl.symbols dd.field {
+    background-image:url('../img/symbols/field.png');
+}
+.chapter dl.symbols dd.repeat {
+    background-image:url('../img/symbols/repeat.png');
+}
+.chapter dl.symbols dd.endrepeat {
+    background-image:url('../img/symbols/endrepeat.png');
+}
+.chapter dl.symbols dd.condition {
+    background-image:url('../img/symbols/condition.png');
+}
+.chapter dl.symbols dd.endcondition {
+    background-image:url('../img/symbols/endcondition.png');
 }
 
 
