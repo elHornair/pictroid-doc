@@ -230,12 +230,68 @@
             Zuerst wurde versucht, die Verifizierung mit verschachtelten <i>if</i>-/<i>else</i>-Bedingungen umzusetzen,
             welche die obigen Konditionen überprüfen. Da aber bereits die einfachen Regeln der <i>Pictroid</i>-Sprache zu
             unüberschaubaren und komplexen Codestrukturen führen, habe mich entschieden,
-            die Verifizierung mit Hilfe eines <i>Push-Down-Automaten</i> (<i>PDA</i>) umzusetzen.
-            Ein <i>PDA</i> kann ...
-            <!--TODO: korrekte schreibweise für PDA-->
-            <!--TODO: nette grafik für PDA-->
-            <!--TODO: erklären, wies mit PDA gemacht wird-->
+            die Verifizierung mit Hilfe eines <i>PDA</i><span class="footnote">Abkürzung für
+            <i>pushdown automaton</i>, englisch für <i>Kellerautomat</i></span> zu implementieren.
+        </p>
+        <p>
+            Ein PDA ist ein theoretisches Konstrukt, das eine Maschine simuliert. Die Maschine kann Zeichen
+            verarbeiten, die auf ein <i>unendliches Eingabeband</i> geschrieben sind. Aufgrund dieser Zeichen kann
+            die Maschine in unterschiedliche <i>Zustände</i> übergehen. Die Maschine kann lediglich lesend auf das
+            unendliche Eingabeband zugreifen. Als Hilfe steht dem PDA allerdings ein <i>Stack</i>
+            <span class="footnote">Englisch für <i>Kellerspeicher</i></span> zur Verfügung. Der Stack ist ein Speicher,
+            der nach dem LIFO-Prinzip<span class="footnote">Abkürzung für englisch <i>last in, first out</i></span>
+            funktioniert. Der PDA kann also Zeichen auf dem Stack ablegen und lesen und diesen so als "Gedächtnis"
+            verwenden.<span class="footnote source"><span class="less">Zusammengefasst von: </span>Michael Sipser (1997),
+            Introduction to the Theory of Computation<span class="additional">, erschienen bei PWS Publishing,
+            ISBN 0-534-94728-X</span></span>
+        </p>
+        <p>
+            Unter Einsatz eines PDA wird die Pictroid-Sprache wie folgt verifiziert:
 
+            <!--TODO: nette grafik für PDA-->
+        </p>
+        <ol>
+            <li><p>Beginn: Auf dem Stack befindet sich ein Platzhalter vom Typ <i>Statement</i>.
+                Auf dem unendlichen Eingabeband befinden sich die Symbole
+                des Programms (beziehungsweise eine textliche Repräsentation davon). Der PDA befindet sich im Zustand
+                <i>lesend</i>.</p></li>
+            <li><p>Das erste Symbol wird vom Eingabeband eingelesen.</p></li>
+            <li><p>Das eingelesene Symbol wird mit demjenigen Symbol verglichen, das sich momentan zuoberst auf dem
+                Stack befindet:
+                <ul>
+                    <li>Handelt es sich beim Symbol auf dem Stack um ein <i>Statement</i>, wird dieses durch eine Folge
+                        von Symbolen ersetzt, die gemäss den Regeln der Sprache ein <i>Command</i>, eine
+                        <i>Condition</i>, oder ein <i>Loop</i> sein können. Dabei wird diejenige Symbolfolge
+                        berücksichtigt, die mit dem momentan vom Eingabeband eingelesenen Symbol beginnt. Danach wird bei
+                        <span class="ol-item-reference">3</span> fortgefahren, ohne das nächste Symbol einzulesen.</li>
+                    <li>Handelt es sich beim Symbol auf dem Stack nicht um ein <i>Statement</i> und sind die beiden
+                        Symbole unterschiedlich, geht der PDA geht in den Zustand <i>ungültig</i> und die Verifikation
+                        wird abgebrochen. In diesem Fall wurde zum Beispiel kein <i>Conditional</i> als erstes Symbol
+                        nach einer <i>Condition</i> gefunden, was aber laut den Regeln der Sprache notwendig ist.
+                        Es wird bei <span class="ol-item-reference">6</span> fortgefahren.</li>
+                    <li></li>
+                    <li>Handelt es sich beim Symbol auf dem Stack nicht um ein <i>Statement</i> und sind die beiden
+                        Symbole gleich, wird das oberste Symbol vom Stack entfernt und das nächste Symbol wird vom
+                        Eingabeband gelesen. Es wird bei <span class="ol-item-reference">3</span> fortgefahren.</li>
+                    <li>Wurde ein leeres Symbol eingelesen, weil bereits alle definierten Symbole vom Eingabeband
+                        gelesen wurden, wird bei <span class="ol-item-reference">4</span> fortgefahren.</li>
+                </ul>
+                </p></li>
+            <li><p>Wenn alle Symbole vom Eingabeband gelesen wurden, wird der verbleibende Stack analysiert:
+                <ul>
+                    <li>Wenn sich auf dem Stack nur noch Symbole vom Typ <i>Statement</i> befinden,geht der PDA in
+                        den Zustand <i>gültig</i>.</li>
+                    <li>Wenn sich auf dem Stack noch Symbole befinden, die nicht vom Typ <i>Statement</i> sind, geht
+                        der PDA in den Zustand <i>ungültig</i>. In diesem Fall wurde beispielsweise vergessen, einen
+                        <i>repeat</i>-Block mit einem <i>endrepeat</i>-Symbol abzuschliessen, obwohl dies von den
+                        Regeln der Sprache verlangt wird.</li>
+                </ul>
+                </p></li>
+            <li><p>Befindet sich der PDA im Zustand <i>gültig</i>, liegt ein valides Pictroid-Programm vor.
+                Befindet er sich hingegen im Zustand <i>ungültig</i>, liegt ein Syntaxfehler vor.</p></li>
+        </ol>
+
+        <p>
             Die Verifizierung mittels <i>PDA</i> ist nicht nur überschaubarer, sie ist auch flexibler: Soll nämlich die
             <i>Pictroid</i>-Sprache erweitert werden, muss einfach eine neue Regel zum <i>PDA</i> hinzugefügt werden.
             Bei einer Implementierung mit verschachtelten <i>if</i>-/<i>else</i>-Bedingungen müsste unter Umständen
