@@ -68,16 +68,29 @@ h2 {
     list-style: none;
 }
 
-.chapter > ul {
+.chapter > ul,
+.chapter > ol {
     margin: 5mm 0mm 5mm 10mm;
 }
+.chapter > ol,
+.ol-item-reference {
+    color: #2A4480;
+    font-weight: bold;
+}
 
-.chapter > ul ul {
+.chapter > ul ul,
+.chapter > ul ol {
     margin-left: 6mm;
     list-style: none;
 }
 
-.chapter li:before {
+.chapter ul li,
+.chapter li p {
+    color: #000000;
+    font-weight: normal;
+}
+
+.chapter ul li:before {
     content:'\2022';
     display: block;
     position: relative;
