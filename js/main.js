@@ -4,7 +4,7 @@ var docModule = (function (docModule, document) {
 
     "use strict";
 
-    var createTocElement = function (title, href) {
+    var createCatalogElement = function (title, href) {
             var wrapper,
                 anchor;
 
@@ -34,14 +34,14 @@ var docModule = (function (docModule, document) {
                 id = 'chapter-' + i;
                 subChapters = mainChapters[i].parentNode.getElementsByTagName('h2');
 
-                tocChapter = createTocElement(mainChapters[i].innerHTML, '#' + id);
+                tocChapter = createCatalogElement(mainChapters[i].innerHTML, '#' + id);
                 mainChapters[i].setAttribute('id', id);// set id of target element, so we can link to it
                 tocSubChapterList = document.createElement('ol');
 
                 // loop through subchapters
                 for (j = 0; j < subChapters.length; j++) {
                     id = 'chapter-' + i + '-' + j;
-                    tocSubChapter = createTocElement(subChapters[j].innerHTML, '#' + id);
+                    tocSubChapter = createCatalogElement(subChapters[j].innerHTML, '#' + id);
                     subChapters[j].setAttribute('id', id);// set id of target element, so we can link to it
                     tocSubChapterList.appendChild(tocSubChapter);
                 }
@@ -49,6 +49,35 @@ var docModule = (function (docModule, document) {
                 tocChapter.appendChild(tocSubChapterList);
                 tocContainer.appendChild(tocChapter);
             }
+        },
+
+        generateCatalog = function (catalogContainer, referencedElements, idPrefix) {
+            var i,
+                id;
+
+            for (i = 0; i < referencedElements.length; i++) {
+                id = idPrefix + i;
+                referencedElements[i].setAttribute('id', id);// set id of target element, so we can link to it
+                catalogContainer.appendChild(
+                    createCatalogElement('Abbildung ' + (i + 1) + ': ' + referencedElements[i].innerHTML, '#' + id)
+                );
+            }
+        },
+
+        generateFigureCatalog = function () {
+            generateCatalog(
+                document.getElementById('fig_catalog'),
+                document.getElementById('content').getElementsByTagName('figcaption'),
+                'fig-caption-id'
+            );
+        },
+
+        generateTableCatalog = function () {
+            generateCatalog(
+                document.getElementById('table_catalog'),
+                document.getElementById('content').getElementsByTagName('caption'),
+                'table-caption-id'
+            );
         },
 
         createSourceElement = function (content) {
@@ -60,7 +89,7 @@ var docModule = (function (docModule, document) {
 
         generateSourceCatalog = function () {
             var i,
-                catalogContainer = document.getElementById('sourceCatalog'),
+                catalogContainer = document.getElementById('source_catalog'),
                 sources = document.getElementById('content').getElementsByClassName('source'),
                 content,
                 nodeToHide;
@@ -81,6 +110,8 @@ var docModule = (function (docModule, document) {
 
     docModule.init = function () {
         generateTOC();
+        generateFigureCatalog();
+        generateTableCatalog();
         generateSourceCatalog();
     };
 

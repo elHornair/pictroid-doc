@@ -289,7 +289,6 @@ h3 {
 #toc ol > li::before {
     content: counter(toc-level-1) "." counter(toc-level-2) ".  ";
 }
-
 #toc a {
     text-decoration: none;
     color: black;
@@ -332,18 +331,33 @@ h3 {
 }
 
 
-/*source*/
+/*catalogs*/
 .source .additional {
     display: none;
 }
-#sourceCatalog {
+#source_catalog {
     margin-left: 0;
 }
-#sourceCatalog li {
+#source_catalog li {
      padding: 2mm 0;
  }
-#sourceCatalog li:before {
+#source_catalog li:before {
     content: '';
+}
+
+ul.caption_catalog li:before {
+    content: '';
+}
+ul.caption_catalog {
+    margin: 0;
+    padding: 0;
+}
+ul.caption_catalog a {
+    text-decoration: none;
+    color: black;
+}
+ul.caption_catalog a::after {
+    content: leader('.') target-counter(attr(href), page);
 }
 
 
