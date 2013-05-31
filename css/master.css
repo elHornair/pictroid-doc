@@ -67,6 +67,7 @@ h3 {
 }
 
 .chapter table {
+    width: 100%;
     margin-top: 6mm;
     border-collapse:collapse;
 }
@@ -88,7 +89,7 @@ h3 {
     border-right: none;
 }
 
-.chapter table tr:nth-child(even) {
+.chapter table tr:nth-child(odd) {
     background-color: #d3dfed;
 }
 
@@ -144,46 +145,50 @@ h3 {
     width: 32%;
 }
 
-.chapter dl.symbols dt {
-    float: left;
-    line-height: 54px;
-    font-weight: normal;
+/*.chapter table.symbols th:nth-child(even),*/
+.chapter table.symbols td:nth-child(even) {
+    background-color: #d3dfed;
 }
-.chapter dl.symbols dd {
+.chapter table.symbols td:nth-child(odd) {
+    width: 54px;
+    background-color: #ffffff;
+    margin: 1mm 1mm 0 1mm;
+}
+
+.chapter table.symbols .symbol {
     width: 54px;
     height: 54px;
-    margin-bottom: 6px;
+    display: inline-block;
     background-repeat: no-repeat;
-    margin-left: 24mm;
 }
-.chapter dl.symbols dd.left {
+.chapter .symbols .symbol.left {
     background-image:url('../img/symbols/left.png');
 }
-.chapter dl.symbols dd.right {
+.chapter .symbols .symbol.right {
     background-image:url('../img/symbols/right.png');
 }
-.chapter dl.symbols dd.up {
+.chapter .symbols .symbol.up {
     background-image:url('../img/symbols/up.png');
 }
-.chapter dl.symbols dd.down {
+.chapter .symbols .symbol.down {
     background-image:url('../img/symbols/down.png');
 }
-.chapter dl.symbols dd.stone {
+.chapter .symbols .symbol.stone {
     background-image:url('../img/symbols/stone.png');
 }
-.chapter dl.symbols dd.field {
+.chapter .symbols .symbol.field {
     background-image:url('../img/symbols/field.png');
 }
-.chapter dl.symbols dd.repeat {
+.chapter .symbols .symbol.repeat {
     background-image:url('../img/symbols/repeat.png');
 }
-.chapter dl.symbols dd.endrepeat {
+.chapter .symbols .symbol.endrepeat {
     background-image:url('../img/symbols/endrepeat.png');
 }
-.chapter dl.symbols dd.condition {
+.chapter .symbols .symbol.condition {
     background-image:url('../img/symbols/condition.png');
 }
-.chapter dl.symbols dd.endcondition {
+.chapter .symbols .symbol.endcondition {
     background-image:url('../img/symbols/endcondition.png');
 }
 
