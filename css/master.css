@@ -103,9 +103,15 @@ h3 {
 
 .chapter > ul,
 .chapter > ol,
-.chapter > dl {
-    margin: 5mm 0mm 5mm 10mm;
+.chapter > table {
+    margin: 5mm 0;
+    page-break-inside: avoid;
 }
+.chapter > ul,
+.chapter > ol {
+    margin-left: 10mm;
+}
+
 .chapter > ol,
 .ol-item-reference {
     color: #2A4480;
@@ -146,13 +152,13 @@ h3 {
 }
 
 /*.chapter table.symbols th:nth-child(even),*/
-.chapter table.symbols td:nth-child(even) {
+.chapter table.symbols tr:nth-child(odd) td:nth-child(even) {
     background-color: #d3dfed;
 }
 .chapter table.symbols td:nth-child(odd) {
     width: 54px;
     background-color: #ffffff;
-    margin: 1mm 1mm 0 1mm;
+    padding: 1mm 1mm 0 1mm;
 }
 
 .chapter table.symbols .symbol {
@@ -190,6 +196,12 @@ h3 {
 }
 .chapter .symbols .symbol.endcondition {
     background-image:url('../img/symbols/endcondition.png');
+}
+.chapter .symbols .symbol.two {
+    background-image:url('../img/symbols/two.png');
+}
+.chapter .symbols .symbol.infinite {
+    background-image:url('../img/symbols/infinite.png');
 }
 
 
