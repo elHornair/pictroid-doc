@@ -103,6 +103,7 @@ h3 {
 
 .chapter > ul,
 .chapter > ol,
+.chapter > figure,
 .chapter > table {
     margin: 5mm 0;
     page-break-inside: avoid;
@@ -234,7 +235,8 @@ h3 {
 }
 
 /*captions*/
-.chapter caption {
+.chapter caption,
+.chapter figcaption {
     caption-side: bottom;
     text-align: left;
     color: #2A4480;
@@ -242,13 +244,21 @@ h3 {
     padding: 2mm 0 0 4mm;
 }
 #content {
-    counter-reset: caption-table;
+    counter-reset: caption-table caption-img;
 }
+
 .chapter table caption {
     counter-increment: caption-table;
 }
 .chapter table caption::before {
     content: "Tabelle " counter(caption-table) ": ";
+}
+
+.chapter figure figcaption {
+    counter-increment: caption-img;
+}
+.chapter figure figcaption::before {
+    content: "Abbildung " counter(caption-img) ": ";
 }
 
 
