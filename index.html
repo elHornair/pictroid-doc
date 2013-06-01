@@ -173,12 +173,12 @@
             <li>Anweisungen: Anweisungen sind das wohl wichtigste aller Programmierkonstrukte. Damit können dem
                 Computer (bzw. dem Roboter) konkrete Schritte "befohlen" werden. Dieses Konzept ist auch für
                 Einsteiger schnell zu verstehen: Ich befehle etwas und der Computer führt es aus.</li>
-            <li>Schleifen: Eine wichtige frühe Erkenntnis auf dem frühen Weg zum Programierer ist, dass nicht jede Anweisung
-                einzeln erteilt werden muss. Der Computer kann angewiesen werden, Anweisungen zu wiederholen.</li>
             <li>Bedingungen: Beim Schreiben eines noch so einfachen Programms kommt man schnell in eine Situation, in
                 der man eine Fallunterscheidung vornehmen will. Das Konzept ist deshalb einfach zu verstehen, weil
                 vermutlich alle Programmieranfänger Bedingungen aus dem Alltag kennen: Wenn die Ampel rot ist, warte
                 ich, wenn die Ampel grün ist, laufe ich.</li>
+            <li>Schleifen: Eine wichtige frühe Erkenntnis auf dem frühen Weg zum Programierer ist, dass nicht jede Anweisung
+                einzeln erteilt werden muss. Der Computer kann angewiesen werden, Anweisungen zu wiederholen.</li>
         </ul>
         <p>Folgende Konstrukte stellen ebenfalls wichtige Konzepte der Programmierung dar, sollen aber der Einfachheit
             halber nicht Teil der Pictroid-Sprache sein:
@@ -195,8 +195,9 @@
             Es ist vorstellbar, dass diese Konzepte zu einem späteren Zeitpunkt in die Sprache integriert werden.
         </p>
         <p>
-            Aufgrund der obigen Überlegungen wurden folgende Symbole für die Pictroid-Sprache definiert. Die
-            verschiedenen Farben sollen dabei die Ähnlichkeit der Symbole unterstreichen:
+            Aufgrund der obigen Überlegungen wurden folgende Symbole für die Pictroid-Sprache definiert. Es wurde darauf
+            geachtet, die Symbole so auszuwählen, dass ihre jeweilige Bedeutung leicht damit assoziiert werden kann. Die
+            verschiedenen Farben sollen dabei die Ähnlichkeit der Symbole unterstreichen.
         </p>
 
         <table class="symbols">
@@ -223,13 +224,11 @@
             </tr>
             <tr>
                 <td><span class="symbol stone"></span></td>
-                <td>Steht für einen Stein und bezieht sich immer auf das Feld, das der Roboter betreten würde, wenn
-                    er ein Feld geradeaus gehen würde.</td>
+                <td>Steht für einen Stein.</td>
             </tr>
             <tr>
                 <td><span class="symbol field"></span></td>
-                <td>Steht für ein leeres Feld und bezieht sich immer auf das Feld, das der Roboter betreten würde, wenn
-                    er ein Feld geradeaus gehen würde.</td>
+                <td>Steht für ein leeres Feld.</td>
             </tr>
             <tr>
                 <td><span class="symbol condition"></span></td>
@@ -249,17 +248,75 @@
             </tr>
             <tr>
                 <td><span class="symbol two"></span></td>
-                <td>Steht für die Zahl <i>zwei</i>. Entsprechend werden Symbole für die Zahlen drei bis neun definiert.
-                    Diese sind hier aus Platzgründen nicht aufgelistet.</td>
+                <td>Steht für die Zahl <i>zwei</i>. Entsprechend werden Symbole für die Zahlen <i>drei</i> bis
+                    <i>neun</i> definiert. Diese sind hier aus Platzgründen nicht aufgelistet.</td>
             </tr>
             <tr>
                 <td><span class="symbol infinite"></span></td>
                 <td>Steht für eine unendlich grosse Zahl.</td>
             </tr>
         </table>
-
         <p>
-            <!--TODO: Syntax der Sequenzen erklären (keine footnote)-->
+            Pictroid-Bedingungen werden wie folgt formuliert:
+        </p>
+        <table class="symbols">
+            <caption>Bedingungen in Pictroid</caption>
+            <tr>
+                <th>Symbol</th>
+                <th>Erklärung</th>
+            </tr>
+            <tr>
+                <td><span class="symbol condition"></span></td>
+                <td>Markiert den Beginn der Bedinung.</td>
+            </tr>
+            <tr>
+                <td><span class="symbol stone"></span></td>
+                <td>Definiert, unter welcher Bedingung der Bedingungskörper ausgeführt wird. Die Bedingung bezieht sich
+                    immer auf das Feld, das der Roboter betreten würde, wenn er ein Feld geradeaus gehen würde.
+                    Alternativ kann das Symbol für ein leeres Feld verwendet werden.</td>
+            </tr>
+            <tr>
+                <td><span class="symbol"></span></td>
+                <td>Körper der Bedingung. Hier dürfen beliebige Anweisungen stehen (auch weitere Bedingungen und
+                    Schleifen).</td>
+            </tr>
+            <tr>
+                <td><span class="symbol endcondition"></span></td>
+                <td>Markiert das Ende der Bedinung.</td>
+            </tr>
+        </table>
+        <p>
+            Die Pictroid-Symbole dürfen wie folgt zu Schleifen zusammengefügt werden:
+        </p>
+        <table class="symbols">
+            <caption>Schleifen in Pictroid</caption>
+            <tr>
+                <th>Symbol</th>
+                <th>Erklärung</th>
+            </tr>
+            <tr>
+                <td><span class="symbol repeat"></span></td>
+                <td>Markiert den Beginn der Schleife.</td>
+            </tr>
+            <tr>
+                <td><span class="symbol two"></span></td>
+                <td>Definiert die Anzahl der auszuführenden Wiederholungen. Alternativ können die Zahlen <i>drei</i>
+                    bis <i>neun</i> oder das Symbol für Unendlichkeit verwendet werden.</td>
+            </tr>
+            <tr>
+                <td><span class="symbol"></span></td>
+                <td>Körper der Schleife. Hier dürfen beliebige Anweisungen stehen (auch weitere Schleifen und
+                    Bedingungen).</td>
+            </tr>
+            <tr>
+                <td><span class="symbol endrepeat"></span></td>
+                <td>Markiert das Ende der Schleife.</td>
+            </tr>
+        </table>
+        <p>
+            Bedingungen und Schleifen dürfen beliebig ineinander verschachtelt werden. Die Anweisungen zur
+            Richtungsänderung dürfen in beliebiger Anzahl ausserhalb von Schleifen und Bedingungen, oder in deren Körper
+            vorkommen. Alle anderen als die hier aufgeführten Symbole und Kombinationen sind syntaktisch falsch.
         </p>
 
         <h2>Die Sprache in EBNF-Notation</h2>
