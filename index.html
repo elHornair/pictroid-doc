@@ -157,83 +157,108 @@
 
         <h2>Grundlegende Überlegungen</h2>
         <p>
-
-            -> Sprache soll möglichst einfach sein
-
-            TODO: Sagen, was überlegt wurde und erklären, wie die Symbole aussehen (Bilder) -> Syntax / Semantik
-                  der Symbole erklären
-
-            - Anweisungen
-            - Loops
-            - Conditions
-
-            Der Einfachheit halber sollen folgende Features momentan nicht Teil der Sprache:
-                - Funktionen
-                - Output
-
+            Die zu Entwickelnde Sprache wird <i>Pictroid</i> genannt. Pictroid setzt sich aus den beiden englischen
+            Wörtern <i>picture</i> und <i>android</i> zusammen. Die Bezeichnung ist deshalb passend, weil mit
+            Bildern<span class="footnote">Englisch: Picture</span> ein Roboter<span class="footnote">Englisch:
+            Android</span> programmiert werden soll.
+        </p>
+        <p>
+            Gemäss den obigen Zielsetzungen soll die Pictroid-Sprache möglichst einfach sein. Es wurde deshalb überlegt,
+            welche wichtigen Programmierkonstrukte für einen Einsteiger fassbar sind und trotzdem ein mächtiges Werkzeug
+            in der Programmierung darstellen. Dabei wurden die folgenden drei Konstrukte herausgefiltert:
+        </p>
+        <ul>
+            <li>Anweisungen: Anweisungen sind das wohl wichtigste aller Programmierkonstrukte. Damit können dem
+                Computer (bzw. dem Roboter) konkrete Schritte "befohlen" werden. Dieses Konzept ist auch für
+                Einsteiger schnell zu verstehen: Ich befehle etwas und der Computer führt es aus.</li>
+            <li>Schleifen: Eine wichtige frühe Erkenntnis auf dem frühen Weg zum Programierer ist, dass nicht jede Anweisung
+                einzeln erteilt werden muss. Der Computer kann angewiesen werden, Anweisungen zu wiederholen.</li>
+            <li>Bedingungen: Beim Schreiben eines noch so einfachen Programms kommt man schnell in eine Situation, in
+                der man eine Fallunterscheidung vornehmen will. Das Konzept ist deshalb einfach zu verstehen, weil
+                vermutlich alle Programmieranfänger Bedingungen aus dem Alltag kennen: Wenn die Ampel rot ist, warte
+                ich, wenn die Ampel grün ist, laufe ich.</li>
+        </ul>
+        <p>Folgende Konstrukte stellen ebenfalls wichtige Konzepte der Programmierung dar, sollen aber der Einfachheit
+            halber nicht Teil der Pictroid-Sprache sein:
+        </p>
+        <ul>
+            <li>Funktionen: Sobald grössere Programme geschrieben werden, entsteht der Wunsch, Code-Sequenzen
+                gruppiert abzuspeichern und so wiederverwendbar zu machen. Da mit Pictroid nur sehr kleine Programme
+                geschrieben werden sollen, kann jedoch darauf verzichtet werden.</li>
+            <li>Ausgabe: Abhängig von der Art des zu lösenden Problems kann eine Rückmeldung des Computers
+                unumgänglich sein (z.B. bei einer mathematischen Berechnung). Für Pictroid kann aber darauf verzichtet
+                werden, da sich auch ohne eine Ausgabemöglichkeit einfache Programme implementieren lassen.</li>
+        </ul>
+        <p>
             Es ist vorstellbar, dass diese Konzepte zu einem späteren Zeitpunkt in die Sprache integriert werden.
-
-            -> Name: Pictroid
-            - durch die farben wird zusammengehörigkeit unterstrichen
+        </p>
+        <p>
+            Aufgrund der obigen Überlegungen wurden folgende Symbole für die Pictroid-Sprache definiert. Die
+            verschiedenen Farben sollen dabei die Ähnlichkeit der Symbole unterstreichen:
         </p>
 
-        <!-- TODO: beschreibungen ausformulieren -->
         <table class="symbols">
             <caption>Pictroid-Symbole mit Beschreibung</caption>
             <tr>
                 <th>Symbol</th>
-                <th>Beschreibung</th>
+                <th>Semantische Bedeutung<span class="footnote">Siehe Glossar</span></th>
             </tr>
             <tr>
                 <td><span class="symbol left"></span></td>
-                <td>left</td>
+                <td>Weist den Roboter an, sich nach links zu bewegen, bzw. sich nach links zu drehen.</td>
             </tr>
             <tr>
                 <td><span class="symbol right"></span></td>
-                <td>right</td>
+                <td>Weist den Roboter an, sich nach rechts zu bewegen, bzw. sich nach rechts zu drehen.</td>
             </tr>
             <tr>
                 <td><span class="symbol up"></span></td>
-                <td>up</td>
+                <td>Weist den Roboter an, sich nach oben zu bewegen, bzw. sich nach oben zu drehen.</td>
             </tr>
             <tr>
                 <td><span class="symbol down"></span></td>
-                <td>down</td>
+                <td>Weist den Roboter an, sich nach unten zu bewegen, bzw. sich nach unten zu drehen.</td>
             </tr>
             <tr>
                 <td><span class="symbol stone"></span></td>
-                <td>stone</td>
+                <td>Steht für einen Stein und bezieht sich immer auf das Feld, das der Roboter betreten würde, wenn
+                    er ein Feld geradeaus gehen würde.</td>
             </tr>
             <tr>
                 <td><span class="symbol field"></span></td>
-                <td>field</td>
+                <td>Steht für ein leeres Feld und bezieht sich immer auf das Feld, das der Roboter betreten würde, wenn
+                    er ein Feld geradeaus gehen würde.</td>
             </tr>
             <tr>
                 <td><span class="symbol condition"></span></td>
-                <td>condition</td>
+                <td>Markiert den Beginn einer Bedingung.</td>
             </tr>
             <tr>
                 <td><span class="symbol endcondition"></span></td>
-                <td>endcondition</td>
+                <td>Markiert das Ende einer Bedingung.</td>
             </tr>
             <tr>
                 <td><span class="symbol repeat"></span></td>
-                <td>repeat</td>
+                <td>Markiert den Beginn einer Schleife.</td>
             </tr>
             <tr>
                 <td><span class="symbol endrepeat"></span></td>
-                <td>endrepeat</td>
+                <td>Markiert das Ende einer Schleife.</td>
             </tr>
             <tr>
                 <td><span class="symbol two"></span></td>
-                <td>two</td>
+                <td>Steht für die Zahl <i>zwei</i>. Entsprechend werden Symbole für die Zahlen drei bis neun definiert.
+                    Diese sind hier aus Platzgründen nicht aufgelistet.</td>
             </tr>
             <tr>
                 <td><span class="symbol infinite"></span></td>
-                <td>infinite</td>
+                <td>Steht für eine unendlich grosse Zahl.</td>
             </tr>
         </table>
 
+        <p>
+            <!--TODO: Syntax der Sequenzen erklären (keine footnote)-->
+        </p>
 
         <h2>Die Sprache in EBNF-Notation</h2>
         <p>
