@@ -214,7 +214,7 @@ h3 {
 
 /* chapter counters */
 #content {
-    counter-reset: h1;
+    counter-reset: h1 caption-table caption-img;
 }
 
 .chapter h1 {
@@ -248,9 +248,6 @@ h3 {
     color: #2A4480;
     font-size: 10pt;
     padding: 2mm 0 0 4mm;
-}
-#content {
-    counter-reset: caption-table caption-img;
 }
 
 .chapter table caption {
