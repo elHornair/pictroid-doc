@@ -307,6 +307,8 @@ h3 {
     counter-increment: footnote;
     float: footnote;
     font-size: 10pt;
+    color: #000000;
+    font-weight: normal;
 }
 
 .footnote::footnote-call {
