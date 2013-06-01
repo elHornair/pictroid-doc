@@ -36,7 +36,8 @@
 html,
 body,
 div {
-  font: 12pt serif;
+  font-family: serif;
+  font-size: 12pt;
   padding: 0;
   margin: 0;
 }
@@ -150,6 +151,11 @@ h3 {
 .chapter div.column {
     float: left;
     width: 32%;
+}
+
+.chapter .code {
+    font-family: monospace;
+    font-size: 11pt;
 }
 
 /*.chapter table.symbols th:nth-child(even),*/

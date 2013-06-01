@@ -322,25 +322,32 @@
 
         <h2>Pictroid in EBNF-Notation</h2>
         <p>
-            - Vorgehen erklären: Zuerst von Hand gezeichnet (als Typ3-Grammatik, oder wie heisst das schon wieder?),
-                                 dann mit EBNF-Notation ausgedrückt
-            - EBNF-Notation kurz erklären
-                - https://de.wikipedia.org/wiki/EBNF
-
-
-            Begriffe:
-
-            EBNF<span class="footnote source">
-                ISO (1996), Extended BNF<span class="additional">, Abgerufen am 28.04.2013 von http://standards.iso.org/ittf/licence.html</span>
-            </span>
-
-            Reguläre Grammatik<span class="footnote">Siehe Glossar</span>
-
-
-            Um die Lesbarkeit der Sprache in der EBNF-Notation zu erhöhen, wurden die grafischen Symbole durch kurze
-            Texte ersetzt. Die verwendeten Texte entsprechen wie folgt den oben definierten Symbolen:
+            Nachdem die grundsätzliche Funktionsweise von Pictroid erarbeitet wurde muss die Sprache formal definiert
+            werden. Dazu wird die EBNF-Notation<span class="footnote source">
+                ISO (1996), Extended BNF<span class="additional">, Abgerufen am 28.04.2013 von
+                http://standards.iso.org/ittf/licence.html</span>
+            </span> verwendet. Der Zweck der EBNF-Notation ist es, kontextfreie Grammatiken einheitlich zu beschreiben.
+            <span class="footnote source">
+                Noam Chomsky (1956), Three models for the description of language<span class="additional">,
+                erschienen bei IEEE, ISSN 0096-1000</span>
+            </span> Jede Programmiersprache kann als kontextfreie Grammatik aufgefasst werden, also auch Pictroid.
         </p>
-
+        <p>
+            In der EBNF-Notation werden einerseits <i>Terminalsymbole</i> beschrieben. Diese umfassen alle Zeichen, die
+            im Programmcode der Sprache vorkommen dürfen. Andererseits werden in der EBNF-Notation <i>Nichtterminale</i>
+            definiert, die Platzhalter darstellen. Mithilfe von <i>Produktionsregeln</i> können Nichtterminale
+            in beliebig lange Folgen von Terminalen und weiteren Nichtterminalen umgewandelt werden. Produktionsregeln
+            bestehen immer aus dem linken Teil (dem Nichtterminal), einem Gleichheitszeichen, dem rechten Teil
+            (der Produktion) und einem abschliessenden Strichpunkt.
+            In der Produktion sind Aneinanderreihungen (dargestellt durch Komma) und Alternativen
+            (dargestellt durch vertikalen Strich) von Symbolen erlaubt. Optionale Symbole oder Symbolfolgen werden in
+            eckige Klammern gefasst. Symbole oder Symbolfolgen, die beliebig oft (auch nie) wiederholt werden dürfen,
+            werden in geschweifte Klammern gefasst. Einfache Klammern dienen der Gruppierung von Symbolfolgen.
+        </p>
+        <p>
+            Um die Lesbarkeit der Sprache in der EBNF-Notation zu erhöhen, werden die grafischen Symbole durch kurze
+            Texte ersetzt. Die verwendeten Texte entsprechen wie folgt den zuvor definierten Symbolen:
+        </p>
         <table class="symbols">
             <caption>Pictroid-Symbole und entsprechende Ersatztexte</caption>
             <tr>
@@ -382,26 +389,44 @@
         </table>
 
         <p>
-            Die Numerischen Symbole sowie das Unendlichkeitssymbol werden durch ihre entsprechende Ziffer, bzw. durch
+            Die numerischen Symbole sowie das Unendlichkeitssymbol werden durch ihre entsprechende Ziffer, bzw. durch
             das Unendlichkeitszeichen ersetzt.
         </p>
 
-        <h3 class="clear">Terminalsymbole</h3>
+        <h3 class="clear">Terminale</h3>
         <p>
-            <!-- TODO: andere schrift für code? wenigstens monospace -->
-            Counter = "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "&infin;" ;<br>
-            Command = "left" | "right" | "up" | "down" ;<br>
-            Conditional = "stone" ;
+            Die Terminalsymbole umfassen folgende Zeichen:
         </p>
+        <ul class="code">
+            <li>"left", "right", "up", "down"</li>
+            <li>"stone", "field"</li>
+            <li>"2", "3", "4", "5", "6", "7", "8", "9", "&infin;"</li>
+            <li>"condition", "endcondition"</li>
+            <li>"repeat", "endrepeat"</li>
+        </ul>
 
-        <h3>Nichtterminalsymbole</h3>
+        <h3>Nichtterminale und Produktionsregeln</h3>
         <p>
-            <!--TODO: erklären - statement kann auch ins nichts führen -> leeres programm-->
-            <!--TODO: erklären - auch NACH loop und condition muss Statement kommen können-->
-            Programm = { Statement } ;<br>
-            Statement = Command | Condition | Loop ;<br>
-            Condition = "condition", Conditional, { Statement }, "endcondition", { Statement } ;<br>
-            Loop = "repeat", Counter, { Statement }, "endrepeat", { Statement } ;<br>
+            Es gibt folgende Nichtterminale und Produktionsregeln:
+        </p>
+        <ul class="code">
+            <li>Program = { Statement } ;<br></li>
+            <li>Statement = (Command | Condition | Loop), { Statement };</li>
+            <li>Command = "left" | "right" | "up" | "down" ;</li>
+            <li>Condition = "condition", Conditional, { Statement }, "endcondition" ;</li>
+            <li>Loop = "repeat", Counter, { Statement }, "endrepeat" ;</li>
+            <li>Conditional = "stone" | "field" ;</li>
+            <li>Counter = "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "&infin;" ;</li>
+        </ul>
+        <p>
+            Lesehilfe für die Produktionsregeln: Ein gültiges Pictroid-Programm besteht also aus einer beliebigen Anzahl
+            von <i>Statements</i>. Diese können ein <i>Command</i>, eine <i>Condition</i> oder einen <i>Loop</i>
+            darstellen und von beliebigen weiteren Statements gefolgt werden. Conditions müssen zwingend aus einem
+            <i>condition</i>-, einem <i>Conditional</i>- und einem <i>endcondition</i>-Symbol bestehen, dazwischen
+            dürfen beliebig viele (auch keine) Statements vorkommen. Loops müssen zwingend aus einem
+            <i>repeat</i>-, einem <i>Counter</i>- und einem <i>endrepeat</i>-Symbol bestehen, dazwischen
+            dürfen beliebig viele (auch keine) Statements vorkommen. Die Notation sagt ausserdem aus, dass auch ein
+            leeres Programm ein gültiges Pictroid-Programm ist.
         </p>
 
         <h2>Verifizierung / Interpretation eines Programms</h2>
@@ -610,15 +635,6 @@
                 <td>Ein W3C-Standard 34, der skriptbares Rendering von visuellen Daten mittels
                     JavaScript erlaubt. So können Bilder dynamisch im Browser erstellt und
                     manipuliert werden. (TODO: streichen, wenn im text nicht verwendet)
-                </td>
-            </tr>
-            <tr>
-                <td>Reguläre Grammatik</td>
-                <td>
-                    TODO: erklären (nur wenn auch verwendet)
-                    <span class="footnote source">
-                        Lutz Engelmann (2000), Kleiner Leitfaden Informatik und ihre Anwendung<span class="additional">, erschienen in Berlin, ISBN 3-89517-615-X</span>
-                    </span>
                 </td>
             </tr>
             <tr>
