@@ -27,7 +27,7 @@
         content: counter(page);
         vertical-align: top;
         text-align: right;
-        margin: 2mm
+        margin: 2mm;
     }
 }
 
@@ -329,6 +329,7 @@ h3 {
         padding-top: 4mm;
         padding-left: 10mm;
         margin-right: 300px;
+        margin-top: 6mm;
     }
 }
 
