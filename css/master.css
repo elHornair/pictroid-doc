@@ -58,6 +58,10 @@ h3 {
     white-space: pre;
 }
 
+a {
+    color: #2A4480;
+}
+
 .clear {
     clear: both;
 }
