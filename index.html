@@ -592,12 +592,34 @@
 
         <h2>Schwierigkeiten</h2>
         <p>
-            Auch kurz sagen, wies gelöst wurde:
-                - Wenn Ziel (Öl) gefunden wurde, muss gestoppt werden
-                - Nicht alles sofort ausführen: Delay
-                - Wenn er Richtung ändert, muss er sich zuerst umdrehen
-                - Verschiedene Maps: Array mit Konfiguration pro Level
+            Im Folgenden werden kurz einige Schwierigkeiten beleuchtet, die beim Implementieren des Prototyps
+            angetroffen wurden:
         </p>
+        <ul>
+            <li>Zeitlich verzögerte Ausführung der einzelnen Instruktionen: Gerade im Zusammenhang mit den
+                Pictroid-Schleifen und -Bedingungen stellte dies ein nicht-triviales Problem dar. Das Problem wurde
+                mit der Methode <span class="code">runInstructions</span> gelöst, die drei Parameter erhält: Ein Array
+                mit allen Instruktionen, der als nächstes auszuführende Instruktionsindex und eine Callback-Funktion.
+                Nach jeder ausgeführten Instruktion ruft sich die Funktion rekursiv<span class="footnote">Siehe Glossar
+                </span> auf, um den nächsten Schritt auszuführen. Die Callback-Funktion wird dazu benutzt, nach dem
+                Ausführen von Schleifen und
+                Bedingungsblöcken auf die richtige Instruktion zu springen. Details zu dieser Methode finden sich in der
+                Datei <i>js/pictroid-robot.js</i> auf Zeile 228.</li>
+            <li>Abbrechen der Code-Ausführung beim Erreichen des Ölfeldes: Unabhängig davon, ob bereits der gesamte Code
+                ausgeführt wurde oder nicht, bedeutet das Erreichen des Ölfeldes das Ende des Programms. Das Feld kann
+                nur nach dem Ausführen eines Fortbewegungsbefehls (<i>left</i>, <i>right</i>, <i>up</i>, <i>down</i>)
+                erreicht werden. Deshalb wird nach jedem solchen Befehl
+                überprüft, ob das Ölfeld erreicht ist. Sobald dies der Fall ist, wird die rekursive Programmausführung
+                unterbrochen. Details dazu finden sich in der Datei <i>js/pictroid-robot.js</i> auf Zeile 284.</li>
+            <li>Unterschiedliche Bedeutung der Fortbewegungsbefehle: Der Befehl <i>left</i> bedeutet "drehe dich nach
+                links", wenn der Roboter in eine andere Richtung gedreht ist und "gehe nach links", wenn er bereits
+                nach links gedreht ist. Deshalb wird zusätzlich zum aktuellen Feld auch die momentane Orientierung
+                abgespeichert. Beim Auffinden eines Fortbewegungsbefehls wird dann überprüft, ob gedreht oder bewegt
+                werden soll. Details dazu finden sich in der Datei <i>js/pictroid-robot.js</i> auf Zeile 199.</li>
+            <li>Unterschiedliche Levels: Um möglichst wenig Codewiederholung zu verursachen, werden die verschiedenen
+                Levels in verschachtelten Arrays gespeichert und das HTML dazu automatisch erstellt. Details dazu finden
+                sich in der Datei <i>js/pictroid-robot.js</i> auf Zeile 33.</li>
+        </ul>
 
         <h2>Technischer Hintergrund</h2>
         <p>
@@ -684,10 +706,9 @@
                 </td>
             </tr>
             <tr>
-                <td>HTML Canvas 2D Context</td>
-                <td>Ein W3C-Standard, der skriptbares Rendering von visuellen Daten mittels
-                    JavaScript erlaubt. So können Bilder dynamisch im Browser erstellt und
-                    manipuliert werden. (TODO: streichen, wenn im text nicht verwendet)
+                <td>Rekursion</td>
+                <td>
+                    TODO: erklären
                 </td>
             </tr>
             <tr>
