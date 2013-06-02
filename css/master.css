@@ -383,11 +383,15 @@ ul.caption_catalog a::after {
 }
 .frontpage h2 {
     margin-top: -2mm;
-    padding-bottom: 4mm;
     font-size: 20pt;
     font-weight: normal;
     border-bottom: solid #687da8 thin;
     color: #2A4480;
+    line-height: 60px;
+    padding-left: 54px;
+    background-image: url('../img/pictroid.png');
+    background-position: -12px 1px;
+    background-repeat: no-repeat;
 }
 .frontpage p {
     color: #687da8;
