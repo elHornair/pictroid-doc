@@ -541,26 +541,59 @@
 
         <h2>Funktionsweise</h2>
         <p>
-            Drag'n'Drop? (sagen, dass nur primzahlen, damit nicht zuviele symbole?)
-            Interpretation?
-            Steuerung des Roboters?
+            Nach dem Definieren der Pictroid-Sprache, wurde der Prototyp entwickelt. Dieser besteht aus 5 Teilen:
         </p>
-
-        <!-- TODO: replace dummy image-->
+        <ol>
+            <li><p>Levelauswahl: Insgesamt stehen fünf Level zur Verfügung.</p></li>
+            <li><p>Informationsbereich: Hier wird der Benutzer darüber informiert, was der Pictroid gerade tut.
+                Informationen zu Fehlern werden ebenfalls hier angezeigt.</p></li>
+            <li><p>Programmierbereich: Bestehend aus den Programmiersymbolen und einem Eingabeband. Mittels Drag'n'Drop
+                können die Symbole auf das Eingabeband kopiert werden. Dort können sie auch umgeordnet und wieder
+                entfernt werden. Der Einfachheit halber stehen nicht alle Counter-Symbole zur Verfügung, sondern nur
+                Primzahlen und das Unendlichkeitssymbol.</p></li>
+            <li><p>Steuerung: Alternierend angezeigte Buttons zum Ausführen des Codes, bzw. zum Zurücksetzen des
+                Pictroids.</p></li>
+            <li><p>Simulationsbereich: Eine Karte mit (je nach Level unterschiedlichen) Hindernissen, auf der sich der
+                Pictroid bewegt. Ziel ist es dabei, den Pictroid zum Feld mit dem Öl zu führen.</p></li>
+        </ol>
         <figure>
-            <img src="img/symbols/endcondition.png">
-            <figcaption>Ein Testbild</figcaption>
+            <img src="img/screenshots/dragndrop.png">
+            <figcaption>Programmierung mittels Drag'n'Drop in Level 4</figcaption>
         </figure>
-
+        <p>
+            Der im vorherigen Kapitel beschriebene Verifizierer wurde für die Applikation implementiert. Beim
+            Drücken des <i>Run Code</i>-Buttons ermittelt der Verifizier, ob es sich um ein syntaktisch korrektes
+            Programm handelt. Wird ein Fehler gefunden, wird dieser im Code auf dem Eingabeband markiert. Im
+            Informationsbereich wird ausserdem ein Tip zum Lösen des Problems ausgegeben.
+        </p>
         <figure>
-            <img src="img/symbols/endcondition.png">
-            <figcaption>Ein weiteres Testbild</figcaption>
+            <img src="img/screenshots/error.png">
+            <figcaption>Anzeige eines Syntaxfehlers</figcaption>
+        </figure>
+        <p>
+            Wenn keine Syntaxfehler gefunden werden, wird mit dem Ausführen des Codes begonnen. Damit der Benutzer die
+            einzelnen Schritte nachvollziehen kann, werden sie mit einer zeitlichen Verzögerung ausgeführt. Während bei
+            der Verifikation nur die Syntax überprüft werden kann, können zur Laufzeit durchaus auch semantische Fehler
+            erkannt werden. So gibt der Pictroid eine Warnung aus, wenn er in ein Hindernis läuft, oder wenn er nach dem
+            Ausführen aller Programmschritte das Öl nicht erreicht hat.
+        </p>
+        <figure>
+            <img src="img/screenshots/hitwall.png">
+            <figcaption>Anzeige eines semantischen Fehlers</figcaption>
+        </figure>
+        <p>
+            Falls der Pictroid während der Code-Ausführung das Ölfeld erreicht, wird die Programmausführung abgebrochen.
+            Das Ziel ist erreicht und es wird eine Erfolgsmeldung ausgegeben.
+        </p>
+        <figure>
+            <img src="img/screenshots/success.png">
+            <figcaption>Pictroid beim Erreichen des Öls</figcaption>
         </figure>
 
         <h2>Schwierigkeiten</h2>
         <p>
             Auch kurz sagen, wies gelöst wurde:
-                - Wenn Ziel gefunden wurde, muss gestoppt werden
+                - Wenn Ziel (Öl) gefunden wurde, muss gestoppt werden
                 - Nicht alles sofort ausführen: Delay
                 - Wenn er Richtung ändert, muss er sich zuerst umdrehen
                 - Verschiedene Maps: Array mit Konfiguration pro Level
