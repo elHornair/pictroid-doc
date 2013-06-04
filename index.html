@@ -50,7 +50,9 @@
             Es soll eine einfache Programmiersprache entwickelt werden, in der Anweisungen aus Bildern bestehen.
             Die Sprache soll es Programmiereinsteigern erlauben, mit Hilfe von Bildern einfachen Code zu "schreiben".
             So sollen diese ein grundlegendes Verständnis für das Entwickeln und Interpretieren von Programmcode erlangen.
-            Der Student kann so Erfahrung sammeln im Entwickeln und Interpretieren einer Programmiersprache.
+            Der Student kann so Erfahrung sammeln im Entwickeln und Interpretieren einer Programmiersprache. Die Aufgabe
+            verlangt zudem ein selbständiges Erarbeiten und Verstehen der Backus-Naur-Form und weiterer benötigter
+            Konzepte.
         </p>
 
         <h2>Erwartete Resultate</h2>
@@ -58,7 +60,7 @@
             Nach Abschluss der Arbeit sollen folgende Resultate vorliegen:
         </p>
         <ul>
-            <li>Definition einer einfachen Programmiersprache in der Backus-Naur-Form.</li>
+            <li>Definition einer einfachen Programmiersprache in der Backus-Naur-Form</li>
             <li>Verifizier: Gibt an, ob syntaktisch<span class="footnote">Siehe Glossar</span> korrektes Programm
                 vorliegt</li>
             <li>Interpreter: Arbeitet korrektes Programm schrittweise durch</li>
@@ -67,15 +69,16 @@
                 <ul>
                     <li>Der Benutzer kann mit Bildern ein Programm zusammenstellen</li>
                     <li>Der Benutzer kann sein Programm mittels Drag'n'Drop<span class="footnote">Siehe
-                        Glossar</span> bearbeiten.</li>
+                        Glossar</span> bearbeiten</li>
                     <li>Der Benutzer kann ein erstelltes Programm ausführen lassen</li>
-                    <li>Ein Roboter kann ein Programm interpretieren und die entsprechenden Schritte ausführen.</li>
-                    <li>Der Roboter hat ein Zielfeld zu erreichen. Er stoppt automatisch,
-                        wenn das Ziel erreicht ist.</li>
-                    <li>Die Anwendung erkennt Syntaxfehler und signalisiert diese dem Benutzer.</li>
-                    <li>Es stehen drei Levels zur Verfügung, in denen der Benutzer das Programmieren üben kann.</li>
+                    <li>Ein Roboter kann ein Programm interpretieren und die entsprechenden Schritte ausführen</li>
+                    <li>Der Roboter hat ein Zielfeld zu erreichen und stoppt automatisch,
+                        wenn das Ziel erreicht ist</li>
+                    <li>Die Anwendung erkennt Syntaxfehler und signalisiert diese dem Benutzer</li>
+                    <li>Es stehen drei Levels zur Verfügung, in denen der Benutzer das Programmieren üben kann</li>
                 </ul>
             </li>
+            <li>Dokumentation der wesentlichen Arbeitsschritte</li>
         </ul>
 
         <h2>Einschränkungen</h2>
@@ -562,7 +565,7 @@
         </figure>
         <p>
             Der im vorherigen Kapitel beschriebene Verifizierer wurde für die Applikation implementiert. Beim
-            Drücken des <i>Run Code</i>-Buttons ermittelt der Verifizier, ob es sich um ein syntaktisch korrektes
+            Drücken des <i>Run Code</i>-Buttons ermittelt der Verifizierer, ob es sich um ein syntaktisch korrektes
             Programm handelt. Wird ein Fehler gefunden, wird dieser im Code auf dem Eingabeband markiert. Im
             Informationsbereich wird ausserdem ein Tip zum Lösen des Problems ausgegeben.
         </p>
@@ -676,18 +679,85 @@
         <h1>Reflexion</h1>
 
         <h2>Soll- / Ist-Analyse</h2>
-        <p>
-            TODO: Tabelle (caption nicht vergessen)
-        </p>
+        <table>
+            <caption>Soll- / Ist-Analyse</caption>
+            <tr>
+                <th>Soll</th>
+                <th>Ist</th>
+            </tr>
+            <tr>
+                <td>Definition einer einfachen Programmiersprache in der Backus-Naur-Form</td>
+                <td>Erfüllt, siehe Kapitel 3.3</td>
+            </tr>
+            <tr>
+                <td>Verifizier: Gibt an, ob syntaktisch korrektes Programm vorliegt</td>
+                <td>Erfüllt, siehe Kapitel 3.4 und Anwendung</td>
+            </tr>
+            <tr>
+                <td>Interpreter: Arbeitet korrektes Programm schrittweise durch</td>
+                <td>Erfüllt, siehe Anwendung</td>
+            </tr>
+            <tr>
+                <td>Anwendung: Der Benutzer kann mit Bildern ein Programm zusammenstellen</td>
+                <td>Erfüllt, siehe Anwendung</td>
+            </tr>
+            <tr>
+                <td>Anwendung: Der Benutzer kann sein Programm mittels Drag'n'Drop bearbeiten</td>
+                <td>Erfüllt, siehe Anwendung</td>
+            </tr>
+            <tr>
+                <td>Anwendung: Der Benutzer kann ein erstelltes Programm ausführen lassen</td>
+                <td>Erfüllt, siehe Anwendung</td>
+            </tr>
+            <tr>
+                <td>Anwendung: Ein Roboter kann ein Programm interpretieren und die entsprechenden Schritte ausführen</td>
+                <td>Erfüllt, siehe Anwendung</td>
+            </tr>
+            <tr>
+                <td>Anwendung: Der Roboter hat ein Zielfeld zu erreichen und stoppt automatisch, wenn das Ziel erreicht
+                    ist</td>
+                <td>Erfüllt, siehe Anwendung</td>
+            </tr>
+            <tr>
+                <td>Anwendung: Die Anwendung erkennt Syntaxfehler und signalisiert diese dem Benutzer</td>
+                <td>Erfüllt, siehe Anwendung</td>
+            </tr>
+            <tr>
+                <td>Anwendung: Es stehen drei Levels zur Verfügung, in denen der Benutzer das Programmieren üben kann</td>
+                <td>Übertroffen, siehe Anwendung</td>
+            </tr>
+            <tr>
+                <td>Dokumentation der wesentlichen Arbeitsschritte</td>
+                <td>Erfüllt, siehe gesamtes Dokument</td>
+            </tr>
+        </table>
 
         <h2>Arbeitsprozess</h2>
         <p>
-            Placeholder
+            Die Projektplanung sah vor, 40-50 Stunden in die Seminararbeit zu investieren. Die effektiv
+            investierte Zeit lag leicht über dem oberen Rand dieses Rahmens, da die Umsetzung des Prototyps
+            etwas unterschätzt wurde. Aus grossem persönlichen Interesse wurde ausserdem auch Funktionalität implementiert,
+            die gemäss Aufgabenstellung nicht vorgeschrieben war und der Prototyp wurde mit viel Liebe zum Detail
+            umgesetzt. Dies ist eine weitere Erklärung für den etwas zu hohen Aufwand.
+        </p>
+        <p>
+            Das Verfassen der Dokumentation wurde erst gegen Ende der Projektzeit begonnen. Dies führte zu einer sehr
+            arbeitsintensiven Schlussphase. Bei einer zukünftigen Projektarbeit wird darauf geachtet werden, die
+            jeweiligen Erkenntnisse bereits bei der Durchführung in der Projektdokumentation zu erfassen.
         </p>
 
         <h2>Persönliches Fazit</h2>
         <p>
-            Placeholder
+            Obwohl ich etwas mehr Zeit in das Projekt investierte als ursprünglich geplant war, bin ich mit dem
+            Resultat sehr zufrieden. Ich konnte viel über das Design von Sprachen lernen. Speziell fasziniert hat mich
+            die Tatsache, dass mit einem grundsätzlich simplen Gebilde wie dem PDA beliebig komplexe Sprachen
+            interpretiert werden können. In diesem Zusammenhang erfuhr ich auch die EBNF-Notation als sehr mächtiges
+            Konstrukt. Zudem erhielt ich während dieser Arbeit die Möglichkeit, einen herausfordernden
+            Prototypen zu implementieren, mit dem ich mich auch in Zukunft befassen werde.
+        </p>
+        <p>
+            Ich möchte es an dieser Stelle nicht unterlassen, Herrn Beat Seeliger für seine Unterstützung als
+            Projektbegleiter zu danken.
         </p>
 
         <h2>Diverses</h2>
@@ -695,8 +765,9 @@
             Die vorliegende Dokument wurde mit HTML, CSS und JavaScript erstellt und mit
             Prince<span class="footnote source">
                 YesLogic Pty. Ltd. (2013), Prince<span class="additional">, Abgerufen am 01.06.2013 von
-                http://www.princexml.com/</span></span> in ein PDF umgewandelt. Sie ist im Originalformat verfügbar unter der
-                URL <a href="https://github.com/elHornair/pictroid-doc"> https://github.com/elHornair/pictroid-doc</a>.
+                http://www.princexml.com/</span></span> in ein PDF umgewandelt. Sie ist im Originalformat verfügbar unter
+            der URL <a href="https://github.com/elHornair/pictroid-doc"> https://github.com/elHornair/pictroid-doc</a>.
+            Das Umsetzen der Projektdokumentation mit Webtechnologien stellte eine weitere lehrreiche Herausforderung dar.
         </p>
     </div>
 
@@ -771,7 +842,7 @@
 
         <h2>Abstract</h2>
         <p>
-            Placeholder
+            TODO: Write Abstract (+- eine Seite)
         </p>
 
         <h2>Echtheitserklärung</h2>
@@ -783,7 +854,7 @@
         <p>
             <br>
             <br>
-            Alain Horner, 4. Juni 2013
+            Alain Horner, 6. Juni 2013
         </p>
     </div>
 
@@ -794,7 +865,6 @@ TODOs allgemein:
 
 - Alle TODOs durchgehn
 - Quellenangaben vervollständigen
-- glossar komplettieren (footnote: jeweils nur beim ersten vorkommen)
 - schauen, dass spezielle wörter nur bei der ersten verwendung kursiv sind
 - Alles nochmal durchlesen
 - cleanup: Seitenumbrüche, Bildunterschriften, Zitate, ...?
