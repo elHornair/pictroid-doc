@@ -60,7 +60,7 @@
         </p>
         <ul>
             <li>Definition einer einfachen Programmiersprache in der EBNF-Notation</li>
-            <li>Verifizier: Gibt an, ob syntaktisch<span class="footnote">Siehe Glossar</span> korrektes Programm
+            <li>Validiererer: Gibt an, ob syntaktisch<span class="footnote">Siehe Glossar</span> korrektes Programm
                 vorliegt</li>
             <li>Interpreter: Arbeitet korrektes Programm schrittweise durch</li>
             <li>
@@ -139,7 +139,7 @@
         <ul>
             <li>Recherchen, Einlesen in das Thema: 5 Stunden</li>
             <li>Entwicklung Sprache: 5 Stunden</li>
-            <li>Entwicklung Verifizier/Interpreter: 10 Stunden</li>
+            <li>Entwicklung Validiererer/Interpreter: 10 Stunden</li>
             <li>Entwicklung Prototyp: 15 Stunden</li>
             <li>Dokumentation: 15 Stunden</li>
         </ul>
@@ -161,14 +161,14 @@
 
         <h2>Grundlegende Überlegungen</h2>
         <p>
-            Die zu Entwickelnde Sprache wird <i>Pictroid</i> genannt. Pictroid setzt sich aus den beiden englischen
+            Die zu entwickelnde Sprache wird <i>Pictroid</i> genannt. Pictroid setzt sich aus den beiden englischen
             Wörtern <i>picture</i> und <i>android</i> zusammen. Die Bezeichnung ist deshalb passend, weil mit
             Bildern<span class="footnote">Englisch: Picture</span> ein Roboter<span class="footnote">Englisch:
             Android</span> programmiert werden soll. Das Wort Pictroid wird auch benutzt, um den im Prototyp
             verwendeten Roboter zu bezeichnen.
         </p>
         <p>
-            Gemäss den obigen Zielsetzungen soll die Pictroid-Sprache möglichst einfach sein. Es wurde deshalb überlegt,
+            Gemäss den Zielsetzungen soll die Pictroid-Sprache möglichst einfach sein. Es wurde deshalb überlegt,
             welche wichtigen Programmierkonstrukte für einen Einsteiger fassbar sind und trotzdem ein mächtiges Werkzeug
             in der Programmierung darstellen. Dabei wurden die folgenden drei Konstrukte herausgefiltert:
         </p>
@@ -179,7 +179,7 @@
             <li>Bedingungen: Beim Schreiben eines noch so einfachen Programms kommt man schnell in eine Situation, in
                 der man eine Fallunterscheidung vornehmen will. Das Konzept ist deshalb einfach zu verstehen, weil
                 vermutlich alle Programmieranfänger Bedingungen aus dem Alltag kennen: Wenn die Ampel rot ist, warte
-                ich, wenn die Ampel grün ist, laufe ich.</li>
+                ich. Wenn die Ampel grün ist, laufe ich.</li>
             <li>Schleifen: Eine wichtige frühe Erkenntnis auf dem frühen Weg zum Programierer ist, dass nicht jede Anweisung
                 einzeln erteilt werden muss. Der Computer kann angewiesen werden, Anweisungen zu wiederholen.</li>
         </ul>
@@ -202,13 +202,13 @@
         <p>
             Aufgrund der obigen Überlegungen wurden folgende Symbole für die Pictroid-Sprache definiert. Es wurde darauf
             geachtet, die Symbole so auszuwählen, dass ihre jeweilige Bedeutung leicht damit assoziiert werden kann. Die
-            verschiedenen Farben sollen dabei die Ähnlichkeit der Symbole unterstreichen.
+            verschiedenen Farben sollen dabei die Zusammengehörigkeit der Symbole unterstreichen.
         </p>
         <table class="symbols">
             <caption>Pictroid-Symbole mit Beschreibung</caption>
             <tr>
                 <th>Symbol</th>
-                <th>Semantische Bedeutung<span class="footnote">Siehe Glossar</span></th>
+                <th>Bedeutung</th>
             </tr>
             <tr>
                 <td><span class="symbol left"></span></td>
@@ -228,7 +228,7 @@
             </tr>
             <tr>
                 <td><span class="symbol stone"></span></td>
-                <td>Steht für einen Stein.</td>
+                <td>Steht für ein Feld, auf dem sich ein Stein befindet.</td>
             </tr>
             <tr>
                 <td><span class="symbol field"></span></td>
@@ -329,11 +329,11 @@
             werden. Dazu wird die EBNF-Notation<span class="footnote source">
                 ISO (1996), Extended BNF<span class="additional">, Abgerufen am 28.04.2013 von
                 http://standards.iso.org/ittf/licence.html</span>
-            </span> verwendet. Der Zweck der EBNF-Notation ist es, kontextfreie Grammatiken einheitlich zu beschreiben.
-            <span class="footnote source">
+            </span> verwendet. Der Zweck der EBNF-Notation ist es, kontextfreie Grammatiken einheitlich zu
+            beschreiben<span class="footnote source">
                 Noam Chomsky (1956), Three models for the description of language<span class="additional">,
                 erschienen bei IEEE, ISSN 0096-1000</span>
-            </span> Jede Programmiersprache kann als kontextfreie Grammatik aufgefasst werden, also auch Pictroid.
+            </span>. Jede Programmiersprache kann als kontextfreie Grammatik aufgefasst werden, also auch Pictroid.
         </p>
         <p>
             In der EBNF-Notation werden einerseits <i>Terminalsymbole</i> beschrieben. Diese umfassen alle Zeichen, die
@@ -348,7 +348,7 @@
             werden in geschweifte Klammern gefasst. Einfache Klammern dienen der Gruppierung von Symbolfolgen.
         </p>
         <p>
-            Um die Lesbarkeit der Sprache in der EBNF-Notation zu erhöhen, werden die grafischen Symbole durch kurze
+            Um die Lesbarkeit der Sprache in der EBNF-Notation zu erhöhen, werden die grafischen Symbole hier durch kurze
             Texte ersetzt. Die verwendeten Texte entsprechen wie folgt den zuvor definierten Symbolen:
         </p>
         <table class="symbols">
@@ -410,7 +410,8 @@
 
         <h3>Nichtterminale und Produktionsregeln</h3>
         <p>
-            Es gibt folgende Nichtterminale und Produktionsregeln:
+            Es gibt folgende Nichtterminale und Produktionsregeln. Jedes Programm muss mit dem Nichtterminal
+            <i>Program</i> beginnen.
         </p>
         <ul class="code">
             <li>Program = { Statement } ;<br></li>
@@ -424,7 +425,7 @@
         <p>
             Lesehilfe für die Produktionsregeln: Ein gültiges Pictroid-Programm besteht also aus einer beliebigen Anzahl
             von <i>Statements</i>. Diese können ein <i>Command</i>, eine <i>Condition</i> oder einen <i>Loop</i>
-            darstellen und von beliebigen weiteren Statements gefolgt werden. Conditions müssen zwingend aus einem
+            darstellen und von beliebig vielen weiteren Statements gefolgt werden. Conditions müssen zwingend aus einem
             <i>condition</i>-, einem <i>Conditional</i>- und einem <i>endcondition</i>-Symbol bestehen, dazwischen
             dürfen beliebig viele (auch keine) Statements vorkommen. Loops müssen zwingend aus einem
             <i>repeat</i>-, einem <i>Counter</i>- und einem <i>endrepeat</i>-Symbol bestehen, dazwischen
@@ -432,43 +433,43 @@
             leeres Programm ein gültiges Pictroid-Programm ist.
         </p>
 
-        <h2>Verifizierung / Interpretation eines Programms</h2>
+        <h2>Validiererung / Interpretation eines Programms</h2>
         <p>
-            Bei der Verifizierung geht es darum zu entscheiden, ob ein bestimmtes Programm korrekt im Sinne der Sprache
-            <i>Pictroid</i> ist. Dabei bezieht sich die Korrektheit nur auf die Syntax des Programms. Ob das Programm
-            auch tatsächlich das tut, was dessen Verfasser beabsichtigt, kann leider nicht automatisch verifiziert werden.
+            Bei der Validiererung geht es darum zu entscheiden, ob ein bestimmtes Programm korrekt im Sinne der Sprache
+            Pictroid ist. Dabei bezieht sich die Korrektheit nur auf die Syntax des Programms. Ob das Programm
+            auch tatsächlich das tut, was dessen Verfasser beabsichtigt, kann leider nicht automatisch Validiert werden.
         </p>
         <p>
-            Wird bei der Verifizierung ein Fehler gefunden, kann zudem ausgesagt werden, an welcher Stelle sich dieser
+            Wird bei der Validiererung ein Fehler gefunden, kann zudem ausgesagt werden, an welcher Stelle sich dieser
             befindet. Ausserdem kann auch eine Aussage darüber gemacht werden, von welcher Art der Fehler ist und wie
             er behoben werden kann.
         </p>
         <p>
             Bei der Interpretation sollen die Programmbefehle gelesen und in konkrete Anweisungen für den
-            <i>Pictroid</i>-Roboter umgewandelt werden. Da eine erfolgreiche Interpretation ein valides Programm
-            voraussetzt, sind Interpretation und Verifizierung stark miteinander verknüpft.
+            Pictroid-Roboter umgewandelt werden. Da eine erfolgreiche Interpretation ein valides Programm
+            voraussetzt, sind Interpretation und Validiererung stark miteinander verknüpft.
         </p>
         <p>
-            Die programmatische Verifizierung von Quellcode kann schnell zu einer komplexen Verschachtelung von
-            <i>if</i>-/<i>else</i>-Bedingungen führen, da zu jedem Befehl auch Spezialfälle beachtet werden müssen.
-            Dies ist auch bei einer einfachen Sprache wie <i>Pictroid</i> der Fall. So müssen unter anderem folgende
-            Bedingungen eingehalten und beim Verifizieren überprüft werden:
+            Die programmatische Validiererung von Quellcode kann schnell zu einer komplexen Verschachtelung von
+            <i>if</i>-/<i>else</i>-Bedingungen führen, da zu jedem Befehl viele Spezialfälle beachtet werden müssen.
+            Dies ist auch bei einer einfachen Sprache wie Pictroid der Fall. So müssen unter anderem folgende
+            Bedingungen eingehalten und beim Validieren überprüft werden:
         </p>
         <ul>
-            <li>Loops und Conditions können beliebig tief ineinander verschachtelt werden. Diese dürfen auch beliebig
-                gemischt werden. Beispielsweise darf in einem Loop eine Bedingung gesetzt werden, die darüber
-                entscheidet, ob ein innerer Loop ausgeführt wird oder nicht.</li>
-            <li>Loops und Conditions müssen immer durch ihr entsprechendes Abschluss-Statement beendet werden.</li>
-            <li>Auf ein Condition-Statement muss immer ein Conditional folgen.</li>
-            <li>Auf Loop-Statement muss immer ein Counter folgen.</li>
-            <li>Conditionals und Counter dürfen an keinen anderen als den vorgesehenen Stellen auftreten.</li>
+            <li>Schleifen und Bedingungen können beliebig tief ineinander verschachtelt werden. Diese dürfen auch beliebig
+                gemischt werden. Beispielsweise darf in einer Schleife eine Bedingung gesetzt werden, die darüber
+                entscheidet, ob eine innere Schleife ausgeführt wird oder nicht.</li>
+            <li>Schleifen und Bedingungen müssen immer durch ihr entsprechendes Abschlusssymbol beendet werden.</li>
+            <li>Auf ein Bedingungssymbol muss immer ein <i>Conditional</i> folgen.</li>
+            <li>Auf ein Schleifensymbol muss immer ein <i>Counter</i> folgen.</li>
+            <li><i>Conditionals</i> und <i>Counter</i> dürfen an keinen anderen als den vorgesehenen Stellen auftreten.</li>
             <li>Es dürfen keine unbekannten Symbole auftreten.</li>
         </ul>
         <p>
-            Zuerst wurde versucht, die Verifizierung mit verschachtelten <i>if</i>-/<i>else</i>-Bedingungen umzusetzen,
-            welche die obigen Konditionen überprüfen. Da aber bereits die einfachen Regeln der <i>Pictroid</i>-Sprache zu
+            Zuerst wurde versucht, die Validiererung mit verschachtelten <i>if</i>-/<i>else</i>-Bedingungen umzusetzen,
+            welche die obigen Konditionen überprüfen. Da aber bereits die einfachen Regeln der Pictroid-Sprache zu
             unüberschaubaren und komplexen Codestrukturen führen, habe mich entschieden,
-            die Verifizierung mit Hilfe eines <i>PDA</i><span class="footnote">Abkürzung für
+            die Validiererung mit Hilfe eines <i>PDA</i><span class="footnote">Abkürzung für
             <i>pushdown automaton</i>, englisch für <i>Kellerautomat</i></span> zu implementieren.
         </p>
         <p>
@@ -478,13 +479,14 @@
             unendliche Eingabeband zugreifen. Als Hilfe steht dem PDA allerdings ein <i>Stack</i>
             <span class="footnote">Englisch für <i>Kellerspeicher</i></span> zur Verfügung. Der Stack ist ein Speicher,
             der nach dem LIFO-Prinzip<span class="footnote">Abkürzung für englisch <i>last in, first out</i></span>
-            funktioniert. Der PDA kann also Zeichen auf dem Stack ablegen und lesen und diesen so als "Gedächtnis"
-            verwenden.<span class="footnote source"><span class="less">Zusammengefasst von: </span>Michael Sipser (1997),
+            funktioniert und auf den Symbole "gestapelt" werden können. Der PDA kann also Zeichen auf dem Stack ablegen
+            und diese in umgekehrter Reihenfolge wieder lesen. Der Stack wird so als "Gedächtnis" des PDAs
+            verwendet<span class="footnote source"><span class="less">Zusammengefasst von: </span>Michael Sipser (1997),
             Introduction to the Theory of Computation<span class="additional">, erschienen bei PWS Publishing,
-            ISBN 0-534-94728-X</span></span>
+            ISBN 0-534-94728-X</span></span>.
         </p>
         <p>
-            Unter Einsatz eines PDA wird die Pictroid-Sprache wie folgt verifiziert:
+            Unter Einsatz eines PDA wird die Pictroid-Sprache wie folgt validiert:
 
             <!--TODO: nette grafik für PDA hier irgendwo einfügen-->
         </p>
@@ -504,7 +506,7 @@
                         berücksichtigt, die mit dem momentan vom Eingabeband eingelesenen Symbol beginnt. Danach wird bei
                         <span class="ol-item-reference">3</span> fortgefahren, ohne das nächste Symbol einzulesen.</li>
                     <li>Handelt es sich beim Symbol auf dem Stack nicht um ein <i>Statement</i> und sind die beiden
-                        Symbole unterschiedlich, geht der PDA geht in den Zustand <i>ungültig</i> und die Verifikation
+                        Symbole unterschiedlich, geht der PDA geht in den Zustand <i>ungültig</i> und der Validierungsvorgang
                         wird abgebrochen. In diesem Fall wurde zum Beispiel kein <i>Conditional</i> als erstes Symbol
                         nach einer <i>Condition</i> gefunden, was aber laut den Regeln der Sprache notwendig ist.
                         Es wird bei <span class="ol-item-reference">6</span> fortgefahren.</li>
@@ -530,12 +532,14 @@
             <li><p>Befindet sich der PDA im Zustand <i>gültig</i>, liegt ein valides Pictroid-Programm vor.
                 Befindet er sich hingegen im Zustand <i>ungültig</i>, liegt ein Syntaxfehler vor.</p></li>
         </ol>
-
         <p>
-            Die Verifizierung mittels <i>PDA</i> ist nicht nur überschaubarer, sie ist auch flexibler: Soll nämlich die
-            <i>Pictroid</i>-Sprache erweitert werden, muss einfach eine neue Regel zum <i>PDA</i> hinzugefügt werden.
+            Die Validiererung mittels <i>PDA</i> ist nicht nur überschaubarer, sie ist auch flexibler: Soll nämlich die
+            Pictroid-Sprache erweitert werden, muss einfach eine neue Regel zum <i>PDA</i> hinzugefügt werden.
             Bei einer Implementierung mit verschachtelten <i>if</i>-/<i>else</i>-Bedingungen müsste unter Umständen
-            die ganze Verifizierung überarbeitet werden.
+            die ganze Validiererung überarbeitet werden.
+        </p>
+        <p>Nach einer erfolgreichen Validierung kann das Programm ausgeführt werden, ohne dass weitere Validierungen
+            vorgenommen werden müssen.
         </p>
     </div>
 
@@ -564,8 +568,8 @@
             <figcaption>Programmierung mittels Drag'n'Drop in Schwierigkeitsstufe vier</figcaption>
         </figure>
         <p>
-            Der im vorherigen Kapitel beschriebene Verifizierer wurde für die Applikation implementiert. Beim
-            Drücken des <i>Run Code</i>-Buttons ermittelt der Verifizierer, ob es sich um ein syntaktisch korrektes
+            Der im vorherigen Kapitel beschriebene Validierer wurde für die Applikation implementiert. Beim
+            Drücken des <i>Run Code</i>-Buttons ermittelt der Validierer, ob es sich um ein syntaktisch korrektes
             Programm handelt. Wird ein Fehler gefunden, wird dieser im Code auf dem Eingabeband markiert. Im
             Informationsbereich wird ausserdem ein Tip zum Lösen des Problems ausgegeben.
         </p>
@@ -576,9 +580,10 @@
         <p>
             Wenn keine Syntaxfehler gefunden werden, wird mit dem Ausführen des Codes begonnen. Damit der Benutzer die
             einzelnen Schritte nachvollziehen kann, werden sie mit einer zeitlichen Verzögerung ausgeführt. Während bei
-            der Verifikation nur die Syntax überprüft werden kann, können zur Laufzeit durchaus auch semantische Fehler
-            erkannt werden. So gibt der Pictroid eine Warnung aus, wenn er in ein Hindernis läuft, oder wenn er nach dem
-            Ausführen aller Programmschritte das Öl nicht erreicht hat.
+            der Validierung nur die Syntax überprüft werden kann, können zur Laufzeit durchaus auch
+            semantische<span class="footnote">Siehe Glossar</span> Fehler erkannt werden. So gibt der Pictroid eine
+            Warnung aus, wenn er in ein Hindernis läuft, oder wenn er nach dem Ausführen aller Programmschritte das Öl
+            nicht erreicht hat.
         </p>
         <p>
             Falls der Pictroid während der Code-Ausführung das Ölfeld erreicht, wird die Programmausführung abgebrochen.
@@ -690,7 +695,7 @@
                 <td>Erfüllt, siehe Kapitel 3.3</td>
             </tr>
             <tr>
-                <td>Verifizier: Gibt an, ob syntaktisch korrektes Programm vorliegt</td>
+                <td>Validierer: Gibt an, ob syntaktisch korrektes Programm vorliegt</td>
                 <td>Erfüllt, siehe Kapitel 3.4 und Anwendung</td>
             </tr>
             <tr>
@@ -759,6 +764,8 @@
             interpretiert werden können. In diesem Zusammenhang erfuhr ich auch die EBNF-Notation als sehr mächtiges
             Konstrukt. Zudem erhielt ich während dieser Arbeit die Möglichkeit, einen herausfordernden
             Prototypen zu implementieren, mit dem ich mich auch in Zukunft befassen werde.
+
+            <!--TODO: auf ausgangslage/ziel der arbeit (soll/ist?) zurückkommen, bogen schliessen-->
         </p>
         <p>
             Ich möchte es an dieser Stelle nicht unterlassen, Herrn Beat Seeliger für seine Unterstützung als
