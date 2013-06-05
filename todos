@@ -1,4 +1,4 @@
 TODOs allgemein:
 
-- cleanup: Seitenumbrüche
-- erste seite abschneiden vor abgabe
+- erste seite abschneiden vor abgabe:
+  gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage=2 -dLastPage=27 -sOutputFile=final.pdf index.pdf
