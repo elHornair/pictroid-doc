@@ -548,7 +548,8 @@
 
         <h2>Funktionsweise</h2>
         <p>
-            Nach dem Definieren der Pictroid-Sprache, wurde der Prototyp entwickelt. Dieser besteht aus 5 Teilen:
+            Nach dem Definieren der Pictroid-Sprache, wurde der Prototyp entwickelt. Die grafische Oberfläche des
+            Prototyps besteht aus fünf Teilen:
         </p>
         <ol>
             <li><p>Auswahl der Schwierigkeitsstufen: Insgesamt stehen fünf Schwierigkeitsstufen zur Verfügung.</p></li>
@@ -582,7 +583,7 @@
             einzelnen Schritte nachvollziehen kann, werden sie mit einer zeitlichen Verzögerung ausgeführt. Während bei
             der Validierung nur die Syntax überprüft werden kann, können zur Laufzeit durchaus auch
             semantische<span class="footnote">Siehe Glossar</span> Fehler erkannt werden. So gibt der Pictroid eine
-            Warnung aus, wenn er in ein Hindernis läuft, oder wenn er nach dem Ausführen aller Programmschritte das Öl
+            Warnung aus, wenn er in ein Hindernis läuft, oder wenn er nach dem Ausführen aller Programmschritte das Ölfeld
             nicht erreicht hat.
         </p>
         <p>
@@ -595,7 +596,7 @@
         </figure>
         <figure>
             <img src="img/screenshots/success.png">
-            <figcaption>Pictroid beim Erreichen des Öls</figcaption>
+            <figcaption>Pictroid beim Erreichen des Ölfeldes</figcaption>
         </figure>
 
         <h2>Schwierigkeiten</h2>
@@ -625,8 +626,9 @@
                 abgespeichert. Beim Auffinden eines Fortbewegungsbefehls wird dann überprüft, ob gedreht oder bewegt
                 werden soll. Details dazu finden sich in der Datei <i>js/pictroid-robot.js</i> auf Zeile 199.</li>
             <li>Unterschiedliche Schwierigkeitsstufen: Um möglichst wenig Codewiederholung zu verursachen, werden die verschiedenen
-                Schwierigkeitsstufenn in verschachtelten Arrays gespeichert und das HTML dazu automatisch erstellt. Details dazu finden
-                sich in der Datei <i>js/pictroid-robot.js</i> auf Zeile 33.</li>
+                Schwierigkeitsstufen in verschachtelten Arrays gespeichert. Die grafische Repräsentation der Karte
+                wird daraus automatisch erstellt. Details dazu finden sich in der Datei <i>js/pictroid-robot.js</i> auf
+                Zeile 33.</li>
         </ul>
 
         <h2>Technischer Hintergrund</h2>
@@ -657,8 +659,9 @@
             <li>Ein Punktesystem, bei dem mit sparsamem Verwenden von Codebefehlen Zusatzpunkte gesammelt werden können.
                 Wand-Kollisionen könnten mit Punkteabzug bestraft werden. Ausserdem könnten Punktefelder eingeführt
                 werden, um zusäztliche Punkte zu sammeln.</li>
-            <li>Bewegliche Hindernisse in der Simulation: Dies würde das Verwenden von Bedingungen fördern.</li>
-            <li>Das Schreiben von zwei unterschiedlichen Symbolen auf Felder erlauben und diese Symbole als Conditinals
+            <li>Bewegliche Hindernisse in der Simulation: Dies würde das Verwenden von Bedingungssymbolen fördern.</li>
+            <li>Das Schreiben von zwei unterschiedlichen Symbolen auf Felder erlauben und diese als
+                zusätzliche <i>Conditional</i>-Symbole
                 einführen. Würde die Simulationskarte dann auf unendliche Höhe und Breite erweitert, könnten beliebige
                 Programme geschrieben werden. Die zwei Symbole könnten zum Schreiben von Binärzahlen verwendet werden.
                 Pictroid wäre somit turing-vollständig.</li>
