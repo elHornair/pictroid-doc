@@ -487,8 +487,6 @@
         </p>
         <p>
             Unter Einsatz eines PDA wird die Pictroid-Sprache wie folgt validiert:
-
-            <!--TODO: nette grafik für PDA hier irgendwo einfügen-->
         </p>
         <ol>
             <li><p>Beginn: Auf dem Stack befindet sich ein Platzhalter vom Typ <i>Statement</i>.
@@ -532,9 +530,13 @@
             <li><p>Befindet sich der PDA im Zustand <i>gültig</i>, liegt ein valides Pictroid-Programm vor.
                 Befindet er sich hingegen im Zustand <i>ungültig</i>, liegt ein Syntaxfehler vor.</p></li>
         </ol>
+        <figure>
+            <img src="img/pictroid_pda.png">
+            <figcaption>PDA bei der Validierung eines Pictroid-Programms ({S} steht für <i>Statement</i>)</figcaption>
+        </figure>
         <p>
-            Die Validiererung mittels <i>PDA</i> ist nicht nur überschaubarer, sie ist auch flexibler: Soll nämlich die
-            Pictroid-Sprache erweitert werden, muss einfach eine neue Regel zum <i>PDA</i> hinzugefügt werden.
+            Die Validiererung mittels PDA ist nicht nur überschaubarer, sie ist auch flexibler: Soll nämlich die
+            Pictroid-Sprache erweitert werden, muss einfach eine neue Regel zum PDA hinzugefügt werden.
             Bei einer Implementierung mit verschachtelten <i>if</i>-/<i>else</i>-Bedingungen müsste unter Umständen
             die ganze Validiererung überarbeitet werden.
         </p>
