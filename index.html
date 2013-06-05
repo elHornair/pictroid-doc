@@ -32,7 +32,7 @@
         <h2>Ausgangslage</h2>
         <p>
             Programmieranfänger sind mit in der Praxis verwendeten Programmiersprachen oft überfordert.
-            Einerseits sind diese Sprachen sehr komplex, andererseits die Interpreter/Compiler äusserst pingelig.
+            Einerseits sind diese Sprachen sehr komplex, andererseits die Interpreter / Compiler äusserst pingelig.
             Aus eigener Erfahrung verbringt man zu Beginn deshalb viel Zeit damit, sich mit fehlenden Semikola
             und der korrekten Schreibweise von Befehlen herumzuschlagen. Mit einer Programmiersprache, die sich an
             den Bedürfnissen von Programmieranfängern orientiert, könnte deshalb der Einstieg in die Programmierung
@@ -51,8 +51,7 @@
             Die Sprache soll es Programmiereinsteigern erlauben, mit Hilfe von Bildern einfachen Code zu "schreiben".
             So sollen diese ein grundlegendes Verständnis für das Entwickeln und Interpretieren von Programmcode erlangen.
             Der Student kann so Erfahrung sammeln im Entwickeln und Interpretieren einer Programmiersprache. Die Aufgabe
-            verlangt zudem ein selbständiges Erarbeiten und Verstehen der Backus-Naur-Form und weiterer benötigter
-            Konzepte.
+            verlangt zudem ein selbständiges Erarbeiten und Verstehen benötigter Konzepte.
         </p>
 
         <h2>Erwartete Resultate</h2>
@@ -60,7 +59,7 @@
             Nach Abschluss der Arbeit sollen folgende Resultate vorliegen:
         </p>
         <ul>
-            <li>Definition einer einfachen Programmiersprache in der Backus-Naur-Form</li>
+            <li>Definition einer einfachen Programmiersprache in der EBNF-Notation</li>
             <li>Verifizier: Gibt an, ob syntaktisch<span class="footnote">Siehe Glossar</span> korrektes Programm
                 vorliegt</li>
             <li>Interpreter: Arbeitet korrektes Programm schrittweise durch</li>
@@ -75,7 +74,7 @@
                     <li>Der Roboter hat ein Zielfeld zu erreichen und stoppt automatisch,
                         wenn das Ziel erreicht ist</li>
                     <li>Die Anwendung erkennt Syntaxfehler und signalisiert diese dem Benutzer</li>
-                    <li>Es stehen drei Levels zur Verfügung, in denen der Benutzer das Programmieren üben kann</li>
+                    <li>Es stehen drei Schwierigkeitsstufen zur Verfügung, in denen der Benutzer das Programmieren üben kann</li>
                 </ul>
             </li>
             <li>Dokumentation der wesentlichen Arbeitsschritte</li>
@@ -89,7 +88,7 @@
             <li>Es soll nicht zwingend eine generische Programmiersprache entwickelt werden. Deshalb besteht nicht der
                 Anspruch, dass die zu entwickelnde Sprache turing-vollständig<span class="footnote">Siehe Glossar</span>
                 ist.</li>
-            <li>Bei der zu entwickelten Anwendung handelt es sich um einen Prototypen. Die Anwendung kann deshalb in der
+            <li>Bei der zu entwickelnden Anwendung handelt es sich um einen Prototyp. Die Anwendung kann deshalb in der
                 Benutzerfreundlichkeit und der grafischen Aufmachung Lücken aufweisen. Der Prototyp soll lediglich das
                 Funktionsprinzip demonstrieren.</li>
         </ul>
@@ -112,14 +111,15 @@
                 Programmieren entdeckt werden. RoboWar ist ein Spiel.</li>
             <li>Während sich die zu entwickelnde Sprache an Programmieranfänger richtet, sind für das Spielen von
                 RoboWar fortgeschrittene Programmierkenntnisse notwendig.</li>
-            <li>Die zu entwickelnde Sprache wird für Einzelspieler konzipiert.</li>
+            <li>Die zu entwickelnde Sprache wird für Einzelspieler konzipiert, RoboWar wurde für mehrere Spieler
+                entwickelt.</li>
             <li>Während in RoboWar textueller Code zur Programmierung der Roboter verwendet wird, werden
                 hier Progamme mit Hilfe von Bildern formuliert.</li>
-            <li>Die hier verwendete Sprache soll deutlich weniger Instruktionen besitzen, als die RoboWar-Sprache
-                <span class="footnote source">
+            <li>Die hier verwendete Sprache soll deutlich weniger Instruktionen besitzen, als die
+                RoboWar-Sprache<span class="footnote source">
                     RoboWiki (2008), Instruction Reference<span class="additional">, Abgerufen am 11.05.2013 von
                     http://robowar.wikia.com/wiki/Instruction_Reference</span>
-                    </span>
+                    </span>.
             </li>
             <li>Das Ziel in der zu entwickelnden Anwendung ist das Erreichen des Zielfeldes. Bei RoboWar sollen die
                 feindlichen Roboter zerstört werden.</li>
@@ -131,7 +131,7 @@
 
         <h2>Zeitlicher Rahmen</h2>
         <p>
-            Der Kurs wird mit zwei ECTS Punkten honoriert, was einem Aufwand von 50-60 Stunden gleichkommt.
+            Der Kurs wird mit zwei ECTS-Punkten honoriert, was einem Aufwand von 50-60 Stunden gleichkommt.
             Davon werden zehn Stunden für Kickoff-Meeting, Koordination und Präsentation abgezogen.
             Somit verbleiben 40-50 Stunden für die Bearbeitung des Themas. Die zur Verfügung stehende Zeit wird wie folgt
             für die Teilarbeiten eingeplant:
@@ -547,7 +547,7 @@
             Nach dem Definieren der Pictroid-Sprache, wurde der Prototyp entwickelt. Dieser besteht aus 5 Teilen:
         </p>
         <ol>
-            <li><p>Levelauswahl: Insgesamt stehen fünf Level zur Verfügung.</p></li>
+            <li><p>Auswahl der Schwierigkeitsstufen: Insgesamt stehen fünf Schwierigkeitsstufen zur Verfügung.</p></li>
             <li><p>Informationsbereich: Hier wird der Benutzer darüber informiert, was der Pictroid gerade tut.
                 Informationen zu Fehlern werden ebenfalls hier angezeigt.</p></li>
             <li><p>Programmierbereich: Bestehend aus den Programmiersymbolen und einem Eingabeband. Mittels Drag'n'Drop
@@ -556,12 +556,12 @@
                 Primzahlen und das Unendlichkeitssymbol.</p></li>
             <li><p>Steuerung: Alternierend angezeigte Buttons zum Ausführen des Codes, bzw. zum Zurücksetzen des
                 Pictroids.</p></li>
-            <li><p>Simulationsbereich: Eine Karte mit (je nach Level unterschiedlichen) Hindernissen, auf der sich der
+            <li><p>Simulationsbereich: Eine Karte mit (je nach Schwierigkeitsstufe unterschiedlichen) Hindernissen, auf der sich der
                 Pictroid bewegt. Ziel ist es dabei, den Pictroid zum Feld mit dem Öl zu führen.</p></li>
         </ol>
         <figure>
             <img src="img/screenshots/dragndrop.png">
-            <figcaption>Programmierung mittels Drag'n'Drop in Level 4</figcaption>
+            <figcaption>Programmierung mittels Drag'n'Drop in Schwierigkeitsstufe vier</figcaption>
         </figure>
         <p>
             Der im vorherigen Kapitel beschriebene Verifizierer wurde für die Applikation implementiert. Beim
@@ -619,8 +619,8 @@
                 nach links gedreht ist. Deshalb wird zusätzlich zum aktuellen Feld auch die momentane Orientierung
                 abgespeichert. Beim Auffinden eines Fortbewegungsbefehls wird dann überprüft, ob gedreht oder bewegt
                 werden soll. Details dazu finden sich in der Datei <i>js/pictroid-robot.js</i> auf Zeile 199.</li>
-            <li>Unterschiedliche Levels: Um möglichst wenig Codewiederholung zu verursachen, werden die verschiedenen
-                Levels in verschachtelten Arrays gespeichert und das HTML dazu automatisch erstellt. Details dazu finden
+            <li>Unterschiedliche Schwierigkeitsstufen: Um möglichst wenig Codewiederholung zu verursachen, werden die verschiedenen
+                Schwierigkeitsstufenn in verschachtelten Arrays gespeichert und das HTML dazu automatisch erstellt. Details dazu finden
                 sich in der Datei <i>js/pictroid-robot.js</i> auf Zeile 33.</li>
         </ul>
 
@@ -686,7 +686,7 @@
                 <th>Ist</th>
             </tr>
             <tr>
-                <td>Definition einer einfachen Programmiersprache in der Backus-Naur-Form</td>
+                <td>Definition einer einfachen Programmiersprache in der EBNF-Notation</td>
                 <td>Erfüllt, siehe Kapitel 3.3</td>
             </tr>
             <tr>
@@ -723,7 +723,8 @@
                 <td>Erfüllt, siehe Anwendung</td>
             </tr>
             <tr>
-                <td>Anwendung: Es stehen drei Levels zur Verfügung, in denen der Benutzer das Programmieren üben kann</td>
+                <td>Anwendung: Es stehen drei Schwierigkeitsstufen zur Verfügung, in denen der Benutzer das
+                    Programmieren üben kann</td>
                 <td>Übertroffen, siehe Anwendung</td>
             </tr>
             <tr>
@@ -731,6 +732,10 @@
                 <td>Erfüllt, siehe gesamtes Dokument</td>
             </tr>
         </table>
+        <p>
+            Zu Beginn der Arbeit wurde definiert, dass der Prototyp lediglich zur Demonstration des
+            Funktionsprinzips dient. Trotzdem wurde eine sehr ausgearbeitete Anwendung produziert.
+        </p>
 
         <h2>Arbeitsprozess</h2>
         <p>
@@ -854,7 +859,7 @@
         <p>
             <br>
             <br>
-            Alain Horner, 6. Juni 2013
+            Alain Horner, 5. Juni 2013
         </p>
     </div>
 
