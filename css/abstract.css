@@ -1,0 +1,38 @@
+@page {
+    size: a4 portrait;
+    margin: 10mm;
+    padding: 0 20mm;
+
+    @top-left {
+        content: "";
+    }
+    @top-right {
+        content: "";
+    }
+    @bottom {
+        content: "";
+    }
+}
+
+.chapter h1::before,
+.chapter h2::before,
+.chapter figure figcaption::before {
+    content: "";
+}
+
+h1 {
+    margin-bottom: 0;
+    font-size: 34pt;
+}
+h2 {
+    margin-top: -2mm;
+    font-size: 16pt;
+    font-weight: normal;
+    border-bottom: solid #687da8 thin;
+    color: #2A4480;
+    line-height: 32px;
+}
+
+.chapter p {
+    margin-bottom: 6mm;
+}
